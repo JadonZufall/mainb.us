@@ -1,0 +1,1 @@
+from apps.poker.config import PokerConfig
