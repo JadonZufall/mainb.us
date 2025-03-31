@@ -2,6 +2,8 @@ from typing import Optional
 from django.db import models
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import Group
+from django.contrib.auth.models import Permission
 
 class UserManager(BaseUserManager):
     def create_user(self, username: str, email: str, password: Optional[str]=None) -> "User":
@@ -21,7 +23,7 @@ class UserManager(BaseUserManager):
         instance.is_admin = True
         instance.save(using=self._db)
         return instance    
-    
+
 
 class User(AbstractUser):
     USERNAME_FIELD: str = "username"
@@ -31,6 +33,8 @@ class User(AbstractUser):
         verbose_name="Username",
         null=False,
         blank=False,
+        max_length=32,
+        unique=True,
     )
     
     email: models.CharField = models.CharField(
@@ -38,6 +42,7 @@ class User(AbstractUser):
         verbose_name="Email",
         null=False,
         blank=False,
+        max_length=32,
     )
     
     is_active: models.BooleanField = models.BooleanField(
@@ -54,6 +59,18 @@ class User(AbstractUser):
         null=False,
     )
     
+    groups: models.ManyToManyField = models.ManyToManyField(
+        Group,
+        related_name="authentication_user_groups",
+        blank=True,
+    )
+
+    user_permissions: models.ManyToManyField = models.ManyToManyField(
+        Permission,
+        related_name="authentication_user_permissions",
+        blank=True,
+    )
+
     date_created: models.DateTimeField = models.DateTimeField(
         name="date_created",
         verbose_name="Date Created",
@@ -78,25 +95,20 @@ class User(AbstractUser):
         return True
     
 
-class Group(models.Model):
-    name: models.CharField = models.CharField(
-        name="name",
-        verbose_name="Name",
-    )
 
 
-class Membership(models.Model):
-    group: models.ForeignKey = models.ForeignKey(
-        name="group",
-        verbose_name="Group",
-        to=Group,
-        on_delete=models.CASCADE,
-    )
+# class Membership(models.Model):
+#     group: models.ForeignKey = models.ForeignKey(
+#         name="group",
+#         verbose_name="Group",
+#         to=Group,
+#         on_delete=models.CASCADE,
+#     )
     
-    user: models.ForeignKey = models.ForeignKey(
-        name="user",
-        verbose_name="User",
-        to=User,
-        on_delete=models.CASCADE,
-    )
+#     user: models.ForeignKey = models.ForeignKey(
+#         name="user",
+#         verbose_name="User",
+#         to=User,
+#         on_delete=models.CASCADE,
+#     )
 

@@ -54,7 +54,10 @@ INSTALLED_APPS: list = [
     'channels',
     
     # Custom Apps
+    #'mainbus.apps.api',
+    'mainbus.apps.AuthenticationConfig',
     'mainbus.apps.PokerConfig',
+    #'mainbus.apps.wiki',
 ]
 
 MIDDLEWARE: list = [
@@ -119,6 +122,8 @@ AUTH_PASSWORD_VALIDATORS: list = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = "authentication.User"
 
 
 # Used by 'channels' for websockets

@@ -1,1 +1,2 @@
-from apps.poker.config import PokerConfig
+from apps.poker.apps import PokerConfig
+from apps.authentication.apps import AuthenticationConfig
