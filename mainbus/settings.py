@@ -127,3 +127,23 @@ CHANNEL_LAYERS: dict = {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
     },
 }
+
+
+LOGGING = {
+'version': 1,
+'disable_existing_loggers': False,
+'handlers': {
+    'file': {
+        'level': 'DEBUG',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR,'mainbus.log'),
+    },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
