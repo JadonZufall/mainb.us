@@ -23,7 +23,7 @@ if not DEBUG:
     with open("etc/secret_key.txt") as f:
         SECRET_KEY = f.read().strip()
 
-ALLOWED_HOSTS: list[str] = [
+ALLOWED_HOSTS: list = [
     '127.0.0.1', 
     'localhost',
     'mainb.us', 
@@ -41,7 +41,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-INSTALLED_APPS: list[str] = [
+INSTALLED_APPS: list = [
     # Default Apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -57,7 +57,7 @@ INSTALLED_APPS: list[str] = [
     'mainbus.apps.PokerConfig',
 ]
 
-MIDDLEWARE: list[str] = [
+MIDDLEWARE: list = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,14 +69,14 @@ MIDDLEWARE: list[str] = [
 
 
 _APP_DIR: str = os.path.join(BASE_DIR, "apps")
-_APP_TEMPLATE_DIRS: list[str] = [os.path.join(os.path.join(_APP_DIR, app), "templates") for app in os.listdir(_APP_DIR)]
-_APP_TEMPLATE_CONTENT: list[str] = []
+_APP_TEMPLATE_DIRS: list = [os.path.join(os.path.join(_APP_DIR, app), "templates") for app in os.listdir(_APP_DIR)]
+_APP_TEMPLATE_CONTENT: list = []
 for template_path in _APP_TEMPLATE_DIRS:
     _APP_TEMPLATE_CONTENT.append(os.path.join(template_path, "html"))
     _APP_TEMPLATE_CONTENT.append(os.path.join(template_path, "js"))
     _APP_TEMPLATE_CONTENT.append(os.path.join(template_path, "css"))
     
-TEMPLATES: list[dict[str, any]] = [
+TEMPLATES: list = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
@@ -96,7 +96,7 @@ TEMPLATES: list[dict[str, any]] = [
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASES: dict[str, dict[str, any]] = {
+DATABASES: dict = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
@@ -105,7 +105,7 @@ DATABASES: dict[str, dict[str, any]] = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-AUTH_PASSWORD_VALIDATORS: list[dict[str, str]] = [
+AUTH_PASSWORD_VALIDATORS: list = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
@@ -122,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS: list[dict[str, str]] = [
 
 
 # Used by 'channels' for websockets
-CHANNEL_LAYERS: dict[str, dict] = {
+CHANNEL_LAYERS: dict = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
     },
