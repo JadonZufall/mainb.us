@@ -8,7 +8,7 @@ from django.shortcuts import render
 class IndexView(View):
     async def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
         response: HttpResponse = render(
-            request, "index.html"
+            request, "poker.html"
         )
         return response
     

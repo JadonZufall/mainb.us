@@ -4,10 +4,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Mainb.us Poker</title>
-        <script src="{% static 'js/poker_ws.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/poker.css' %}">
     </head>
-
-
 
     <body>
         <h1>Poker</h1>
@@ -17,6 +15,9 @@
 
         <h2>Content</h2>
         <a href="{% url 'poker' %}">Poker</a>
+
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <script src="{% static 'js/poker_ws.js' %}"></script>
     </body>
 </html>
 
