@@ -58,6 +58,7 @@ INSTALLED_APPS: list = [
     'mainbus.apps.AuthenticationConfig',
     'mainbus.apps.PokerConfig',
     #'mainbus.apps.wiki',
+    'mainbus.apps.FactoryConfig',
 ]
 
 MIDDLEWARE: list = [

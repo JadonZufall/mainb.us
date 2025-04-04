@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mainb.us Factory</title>
+        <link rel="stylesheet" href="{% static 'css/factory.css' %}">
+    </head>
+
+    <body>
+        <button>Click</button>
+		
+		<section>
+			<h3>Production Lines</h3>
+			<button>+</button>
+		</section>
+
+		<section>
+			<h3>Land Survey</h3>
+			<div id="surveyGrid" class="cellular-grid">
+				<div class="cell">a</div>
+			</div>
+			<script>
+				function setupSurveyGrid() {
+					let grid = document.getElementByID("surveyGrid");
+					
+				}
+			</script>
+		</section>
+
+        <script src="{% static 'js/factory.js' %}"></script>
+    </body>
+</html>
+
