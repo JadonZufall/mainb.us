@@ -1,0 +1,74 @@
+:root {
+	--theme-text-primary: rgb(180, 188, 208);
+	--theme-text-secondary: rgb(255, 255, 255);
+	--theme-text-active: rgb(85, 214, 121);
+
+	--theme-color-border: rgb(255, 255, 255);
+	--theme-color-secondary: rgb(255, 255, 255);
+	
+	--theme-color-background-primary: rgb(24, 24, 27);
+	--theme-color-background-secondary: rgb(34, 35, 38);
+	
+	--theme-color-border: rgb(49, 48, 53);
+	--theme-color-accent: rgb(85, 214, 121);
+	
+	--shadow-alpha: 0.25;
+	--spinner: var(--color-accent);
+}
+
+div.media-controls {
+	line-height: 1.5;
+	font-family: "Inter", sans-serif;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+}
+
+div.media-controls > button.media-button {
+	display: grid;
+	position: relative;
+	grid-template-columns: 1fr;
+	place-items: center;
+	position: relative;
+	user-select: none;
+}
+
+button.media-button {
+	line-height: inherit;
+
+
+	background-color: var(--theme-color-secondary);
+	border: 1px solid var(--theme-color-border);
+	box-shadow: 0 4px 8px 0 rgba(0 0 0 / var(--theme-shadow-alpha));
+	cursor: pointer;
+
+	&:hover {
+		color: var(--theme-text-secondary);
+	}
+
+	&:is-active {
+		color: var(--theme-text-active);
+	}
+}
+
+button.media-button.play {
+
+}
+
+button.circle-button {
+	font-size: 1.5rem;
+	padding: 0;
+	border: 0;
+	border-radius: 99em;
+
+	width: 3.5rem;
+	height: 3.5rem;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
