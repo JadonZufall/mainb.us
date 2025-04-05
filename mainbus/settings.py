@@ -20,8 +20,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #todo manage.py check --deploy
 SECRET_KEY: str = 'django-insecure-xu3$gii%)#nj+#69lm*i5e2y)9ui#o0krf2%t3jwft558pm(*q'
 if not DEBUG:
-    with open("etc/secret_key.txt") as f:
-        SECRET_KEY = f.read().strip()
+    try:
+        with open("etc/secret_key.txt") as f:
+            SECRET_KEY = f.read().strip()
+    except FileNotFoundError:
+        # todo - generate secret_key.txt automatically
+        raise Exception("Unable to locate secret_key.txt")
 
 ALLOWED_HOSTS: list = [
     '127.0.0.1', 
