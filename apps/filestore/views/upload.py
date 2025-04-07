@@ -16,11 +16,12 @@ class UploadView(View):
 	
 	def post(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
 		print("UPLOAD")
-		title = request.POST.get("title")
+		name = request.POST.get("name")
+		desc = request.POST.get("desc")
 		file = request.FILES.get("file")
 
 		if file:
-			video = models.Video(title=title, description="", videofile=file)
+			video = models.Video(title=name, description=desc, videofile=file)
 			video.save()
 			return redirect(reverse("mp4", args=[video.pk]))
 		else:
