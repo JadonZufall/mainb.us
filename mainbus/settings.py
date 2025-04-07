@@ -59,9 +59,9 @@ INSTALLED_APPS: list = [
     'channels',
     
     # Custom Apps
-    #'mainbus.apps.api',
-    'mainbus.apps.BaseConfig',
+    'mainbus.apps.ApiConfig',
     'mainbus.apps.AuthenticationConfig',
+    'mainbus.apps.BaseConfig',
     'mainbus.apps.PokerConfig',
     'mainbus.apps.WikiConfig',
     'mainbus.apps.FactoryConfig',
