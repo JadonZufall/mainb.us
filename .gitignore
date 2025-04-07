@@ -7,3 +7,4 @@ __pycache__/
 venv/
 *.log
 media/*/*.mp4
+media_root/*
