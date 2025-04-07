@@ -133,11 +133,17 @@ AUTH_PASSWORD_VALIDATORS: list = [
 AUTH_USER_MODEL = "authentication.User"
 
 # Used by 'channels' for websockets
-CHANNEL_LAYERS: dict = {
-    "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer",
-    },
-}
+
+if DEBUG:
+    CHANNEL_LAYERS: dict = {
+        "default": {
+            "BACKEND": "channels.layers.InMemoryChannelLayer",
+        },
+    }
+else:
+    #todo> Setup redis as the CHANNEL backend.
+    print("ChannelLayers not properly configured, failed to setup websocket connections.  Must deploy redis for production safe enviornment.")
+
 
 # Logging
 LOGGING = {
