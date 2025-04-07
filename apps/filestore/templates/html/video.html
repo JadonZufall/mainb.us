@@ -1,0 +1,11 @@
+{% load static %}
+<head>
+	<title>Video</title>
+</head>
+<body>
+	<p>{{ filepath }}</p>
+	<video width='1200' controls>
+		<source src="{{ filepath }}" type='video/mp4'>
+		Your browser does not support the video tag.
+	</video>
+</body>

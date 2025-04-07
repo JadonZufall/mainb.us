@@ -1,0 +1,14 @@
+{% load static %}
+<head>
+	<title>Upload</title>
+</head>
+<body>
+	<form action="/f/upload/" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<input type="text" name="title">
+		<br>
+		<input type="file" name="file">
+		<br>
+		<input type="submit" value="Upload">
+	</form>
+</body>
