@@ -2,13 +2,15 @@ import asyncio
 from django.views import View
 from django.http import HttpResponse
 from django.http import HttpRequest
+from django.shortcuts import render
+
 
 
 class IndexView(View):
     async def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
-        response: HttpResponse = HttpResponse(
-            content="<h1>Hello World!</h1>",
-            headers={},
+        response: HttpResponse = render(
+            request,
+            "index.html",
         )
         return response
     

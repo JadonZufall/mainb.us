@@ -3,23 +3,23 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+APPS_DIR = os.path.join(BASE_DIR, "apps")
+
+# Checks if is debug mode.
 DEBUG: bool = os.path.exists(".DEBUG")
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = 'static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media_root")
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
+# Media files (Images, Video, etc)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media_root")
+
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-#! SECURITY WARNING: keep the secret key used in production secret!
-#todo manage.py check --deploy
+# Secret key reading.
 SECRET_KEY: str = 'django-insecure-xu3$gii%)#nj+#69lm*i5e2y)9ui#o0krf2%t3jwft558pm(*q'
 if not DEBUG:
     try:
@@ -40,7 +40,6 @@ ROOT_URLCONF: str = 'mainbus.urls'
 WSGI_APPLICATION: str = 'mainbus.wsgi.application'
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -61,6 +60,7 @@ INSTALLED_APPS: list = [
     
     # Custom Apps
     #'mainbus.apps.api',
+    'mainbus.apps.BaseConfig',
     'mainbus.apps.AuthenticationConfig',
     'mainbus.apps.PokerConfig',
     #'mainbus.apps.wiki',
@@ -68,6 +68,7 @@ INSTALLED_APPS: list = [
     'mainbus.apps.FilestoreConfig',
 ]
 
+# Middle wear
 MIDDLEWARE: list = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,7 +79,7 @@ MIDDLEWARE: list = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
+# todo: not sure this is still required.
 _APP_DIR: str = os.path.join(BASE_DIR, "apps")
 _APP_TEMPLATE_DIRS: list = [os.path.join(os.path.join(_APP_DIR, app), "templates") for app in os.listdir(_APP_DIR)]
 _APP_TEMPLATE_CONTENT: list = []
@@ -86,7 +87,8 @@ for template_path in _APP_TEMPLATE_DIRS:
     _APP_TEMPLATE_CONTENT.append(os.path.join(template_path, "html"))
     _APP_TEMPLATE_CONTENT.append(os.path.join(template_path, "js"))
     _APP_TEMPLATE_CONTENT.append(os.path.join(template_path, "css"))
-    
+
+# Templates
 TEMPLATES: list = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -106,7 +108,6 @@ TEMPLATES: list = [
 ]
 
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 DATABASES: dict = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -115,7 +116,6 @@ DATABASES: dict = {
 }
 
 # Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS: list = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -131,8 +131,8 @@ AUTH_PASSWORD_VALIDATORS: list = [
     },
 ]
 
+# todo: change
 AUTH_USER_MODEL = "authentication.User"
-
 
 # Used by 'channels' for websockets
 CHANNEL_LAYERS: dict = {
@@ -141,7 +141,7 @@ CHANNEL_LAYERS: dict = {
     },
 }
 
-
+# Logging
 LOGGING = {
 'version': 1,
 'disable_existing_loggers': False,
