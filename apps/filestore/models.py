@@ -9,7 +9,7 @@ class Video(models.Model):
 		max_length=500,
 	)
 	videofile: models.FileField = models.FileField(
-		upload_to="media/",
+		upload_to="mp4/",
 		null=True,
 	)
 	date_created: models.DateTimeField = models.DateTimeField(
