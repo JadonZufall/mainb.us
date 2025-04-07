@@ -14,12 +14,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Media files (Images, Video, etc)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media_root")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Secret key reading.
+# The standard secret key is not safe for development so we read it from a file.
 SECRET_KEY: str = 'django-insecure-xu3$gii%)#nj+#69lm*i5e2y)9ui#o0krf2%t3jwft558pm(*q'
 if not DEBUG:
     try:
@@ -29,6 +29,7 @@ if not DEBUG:
         # todo - generate secret_key.txt automatically
         raise Exception("Unable to locate secret_key.txt")
 
+# Any endpoint that we want this to go to we have to include here.
 ALLOWED_HOSTS: list = [
     '127.0.0.1', 
     'localhost',
@@ -36,7 +37,9 @@ ALLOWED_HOSTS: list = [
     'www.mainb.us',
 ]
 
+# Routing
 ROOT_URLCONF: str = 'mainbus.urls'
+ASGI_APPLICATION: str = 'mainbus.asgi.application'
 WSGI_APPLICATION: str = 'mainbus.wsgi.application'
 
 # Internationalization
@@ -47,7 +50,7 @@ USE_TZ = True
 
 
 INSTALLED_APPS: list = [
-    # Default Apps
+    #^ Built-in Applications
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,10 +58,10 @@ INSTALLED_APPS: list = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    # Installed Apps
-    'channels',
+    #^ Installed Applications
+    'channels',                     # Primarly used for websockets.
     
-    # Custom Apps
+    # Mainbus Applications
     'mainbus.apps.ApiConfig',
     'mainbus.apps.AuthenticationConfig',
     'mainbus.apps.BaseConfig',
@@ -79,22 +82,12 @@ MIDDLEWARE: list = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# todo: not sure this is still required.
-_APP_DIR: str = os.path.join(BASE_DIR, "apps")
-_APP_TEMPLATE_DIRS: list = [os.path.join(os.path.join(_APP_DIR, app), "templates") for app in os.listdir(_APP_DIR)]
-_APP_TEMPLATE_CONTENT: list = []
-for template_path in _APP_TEMPLATE_DIRS:
-    _APP_TEMPLATE_CONTENT.append(os.path.join(template_path, "html"))
-    _APP_TEMPLATE_CONTENT.append(os.path.join(template_path, "js"))
-    _APP_TEMPLATE_CONTENT.append(os.path.join(template_path, "css"))
 
-# Templates
+# Configure templates
 TEMPLATES: list = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            d for d in _APP_TEMPLATE_CONTENT
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,6 +99,11 @@ TEMPLATES: list = [
         },
     },
 ]
+
+# Load template directory for each application in apps directory.
+for fp in [os.path.join(os.path.join(os.path.join(BASE_DIR, "apps"), app), "templates") for app in os.listdir(APPS_DIR)]:
+    TEMPLATES[0]["DIRS"].append(os.path.join(fp, "html"))
+
 
 # Database
 DATABASES: dict = {
