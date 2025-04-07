@@ -63,7 +63,7 @@ INSTALLED_APPS: list = [
     'mainbus.apps.BaseConfig',
     'mainbus.apps.AuthenticationConfig',
     'mainbus.apps.PokerConfig',
-    #'mainbus.apps.wiki',
+    'mainbus.apps.WikiConfig',
     'mainbus.apps.FactoryConfig',
     'mainbus.apps.FilestoreConfig',
 ]

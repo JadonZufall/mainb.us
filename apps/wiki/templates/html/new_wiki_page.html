@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<form action="wiki/new/" method="POST" enctype="mutlipart/form">
+		{% csrf_token %}
+		<input type="text" name="title">
+		<br>
+		<input type="text" name="content">
+		<br>
+	</form>
+{% endblock %}
