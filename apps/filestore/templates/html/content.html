@@ -1,12 +1,33 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Mainbus | Content{% endblock %}
 
+{% block header %}
+	<link rel="stylesheet" href="{% static 'css/content_card.css' %}">
+{% endblock %}
+
+
 {% block content %}
-<h1>Content</h1>
-<ul>
-	{% for file in files %}
-		<li>{{ file.name }} - {{ file.file }} - {{ file.filetype }} - {{ file.date_created }} - {{ file.date_altered }}</li>
-	
-	{% endfor %}
-</ul>
+<div class="content-wrapper">
+	<div class="sidebar-padding left"></div>
+	<div class="content">
+		<h1>Content</h1>
+		{% for file in files %}
+			<div class="content-card">
+				<div class="top">
+					<a href="{% url 'mp4' file.pk %}"><h2 class="name">{{ file.name }}</h3></a>
+					<i class="filetype">{{ file.filetype }}</i>
+				</div>
+				<div class="middle">
+					<a href="">Username</a>
+				</div>
+				<div class="bottom">
+					{{ file.views }} views •
+					{{ file.date_created }}
+				</div>
+			</div>	
+		{% endfor %}
+	</div>
+	<div class="sidebar-padding right"></div>
+</div>
 {% endblock %}

@@ -1,0 +1,36 @@
+div.content-wrapper {
+	display: flex;
+	width: 100%;
+}
+
+div.sidebar-padding {
+	min-width: 13%;
+	min-height: 100vh;
+}
+
+div.content {
+	display: initial;
+	width: 100%;
+	min-height: 100vh;
+}
+
+div.content-card {
+	display: initial;
+}
+
+div.content-card > div.top {
+	margin-top: 0px;
+	margin-bottom: 3px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+div.content-card > div.top > .filetype {
+	font-size: 12px;
+}
+
+div.content-card > div.top > a > .name {
+	margin: 0;
+	display: inline-block;
+}
+
