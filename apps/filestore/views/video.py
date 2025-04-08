@@ -11,7 +11,7 @@ class VideoView(View):
         instance = models.File.objects.get(pk=pk)
         filepath = instance.file.url
         response: HttpResponse = render(
-            request, "video.html", {"filepath": filepath, "file": instance}
+            request, "inspect_video.html", {"filepath": filepath, "file": instance}
         )
         return response
     
