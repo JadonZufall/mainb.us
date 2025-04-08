@@ -1,19 +1,25 @@
-{% load static %}
-<head>
-	<title>Video</title>    
+{% extends 'base.html' %}
+{% block title %}Mainbus | Video{% endblock %}
+
+{% block header %}
 	<meta property="og:title" content="{{ video.title }}">
-    <meta property="og:description" content="{{ video.description }}">
-    <meta property="og:type" content="mp4">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:video" content="{{ video_file_url }}">
-    <meta property="og:video:type" content="video/mp4">
-    <meta property="og:video:width" content="1280">
-    <meta property="og:video:height" content="720">
-</head>
-<body>
+	<meta property="og:description" content="{{ video.description }}">
+	<meta property="og:type" content="mp4">
+	<meta property="og:url" content="{{ request.build_absolute_uri }}">
+	<meta property="og:video" content="{{ video_file_url }}">
+	<meta property="og:video:type" content="video/mp4">
+	<meta property="og:video:width" content="1280">
+	<meta property="og:video:height" content="720">
+{% endblock %}
+
+
+{% block content %}
 	<p>{{ filepath }}</p>
 	<video width='1200' controls>
 		<source src="{{ filepath }}" type='video/mp4'>
 		Your browser does not support the video tag.
 	</video>
-</body>
+{% endblock %}
+ 
+
+

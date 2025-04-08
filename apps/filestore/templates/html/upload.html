@@ -1,8 +1,6 @@
-{% load static %}
-<head>
-	<title>Upload</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Mainbus | Upload{% endblock %}
+{% block content %}
 	<form action="/f/upload/" method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		<Label>Name</label>
@@ -17,4 +15,4 @@
 		<br>
 		<input type="submit" value="Upload">
 	</form>
-</body>
+{% endblock %}
