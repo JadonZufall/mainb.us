@@ -5,11 +5,15 @@
 <body>
 	<form action="/f/upload/" method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
-		<input type="text" name="name">
+		<Label>Name</label>
 		<br>
-		<input type="file" name="file">
+		<input type="text" name="name"/>
 		<br>
-		<input type="text" name="desc">
+		<label>Description</label>
+		<br>
+		<input type="text" name="desc"/>
+		<br>
+		<input type="file" name="file"/>
 		<br>
 		<input type="submit" value="Upload">
 	</form>

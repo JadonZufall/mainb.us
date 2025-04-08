@@ -8,10 +8,10 @@ import apps.filestore.models as models
 
 class VideoView(View):
     def get(self, request: HttpRequest, pk: int) -> HttpResponse:
-        video = models.Video.objects.get(pk=pk)
-        filepath = video.videofile.url
+        instance = models.File.objects.get(pk=pk)
+        filepath = instance.file.url
         response: HttpResponse = render(
-            request, "video.html", {"filepath": filepath, "video": video}
+            request, "video.html", {"filepath": filepath, "file": instance}
         )
         return response
     

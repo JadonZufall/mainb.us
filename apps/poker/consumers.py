@@ -2,23 +2,43 @@ from typing import Any
 
 import json
 from channels.generic.websocket import WebsocketConsumer
+from asgiref.sync import async_to_sync
 
 class PokerWebsocketConsumer(WebsocketConsumer):
     def connect(self):
-        self.accept()  # Accept the WebSocket connection
+        self.group_name = 'lobby'       # The group the user is currently apart of.
+        async_to_sync(self.channel_layer.group_add)(
+            self.group_name,
+            self.channel_name,
+        )
+        self.accept()
         self.send(text_data=json.dumps({
-            "type": "connection_established",
-            "message": "You are now connected!",
+            "type": "connect",
+            "data": "A user has connected",
         }))
 
     def disconnect(self, close_code: Any):
-        print("WebSocket disconnected")
+        self.send(text_data=json.dumps({
+            "type": "disconnect",
+            "data": "A user has disconnected",
+            "code": close_code
+        }))
 
     def receive(self, text_data):
         data: dict = json.loads(text_data)
-        message = data.get('message')
+        message = data.get('data')
 
-        # Echo the received message back to the client
+        async_to_sync(self.channel_layer.group_send)(
+            self.group_name,
+            {
+                'type': 'broadcast',
+                'data': message
+            }
+        )
+    
+    def broadcast(self, event):
+        message = event["data"]
         self.send(text_data=json.dumps({
-            'message': f"Echo: {message}"
+            "type": "broadcast",
+            "data": message,
         }))

@@ -14,15 +14,15 @@ class UploadView(View):
 		)
 		return response
 	
-	def post(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
+	def post(self, request: HttpRequest) -> HttpResponse:
 		print("UPLOAD")
 		name = request.POST.get("name")
 		desc = request.POST.get("desc")
 		file = request.FILES.get("file")
 
 		if file:
-			video = models.Video(title=name, description=desc, videofile=file)
-			video.save()
-			return redirect(reverse("mp4", args=[video.pk]))
+			instance = models.File(name=name, desc=desc, file=file, filetype="mp4")
+			instance.save()
+			return redirect(reverse("mp4", args=[instance.pk]))
 		else:
-			return redirect(reverse("mp4", args=[video.pk]))
+			return HttpResponse("<h1>Failed to upload file :(</h1>")
