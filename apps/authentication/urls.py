@@ -1,10 +1,12 @@
 from django.urls import path, include
-from .views import SignupView
-from .views import SigninView
-from .views import SignoutView
 
+
+# this one has to be weird cuz I want it to be
+# <url>/u/<username>
+# <url>/g/<groupname>
+# <url>/a/signup
+# <url>/a/signin
+# <url>/a/signout
 urlpatterns = [
-	path('signup/', SignupView.as_view(), name="signup"),
-    path('signin/', SigninView.as_view(), name="signin"),
-	path('signout/', SignoutView.as_view(), name="signout"),
+
 ]

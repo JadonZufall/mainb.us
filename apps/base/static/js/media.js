@@ -10,6 +10,7 @@ document.querySelectorAll("button.media-button").forEach((button, index) => {
 			button.classList.toggle("is-active");
 		}
 	});
+
 });
 
 document.querySelectorAll("button.media-button.play").forEach((button, index) => {
