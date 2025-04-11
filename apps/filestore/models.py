@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
 import datetime
 
 def filename_format(instance, filename: str) -> str:
@@ -24,6 +25,11 @@ class File(models.Model):
 	)
 	views = models.PositiveBigIntegerField(
 		default=0,
+	)
+	author = models.ForeignKey(
+		settings.AUTH_USER_MODEL, 
+		on_delete=models.SET_NULL, 			# When the user who authored the file is deleted the file sets it's author to NULL.
+		null=True,
 	)
 	date_created = models.DateTimeField(
 		auto_now_add=True,
