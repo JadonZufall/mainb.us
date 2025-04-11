@@ -22,8 +22,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # The standard secret key is not safe for development so we read it from a file.
 SECRET_KEY: str = 'django-insecure-xu3$gii%)#nj+#69lm*i5e2y)9ui#o0krf2%t3jwft558pm(*q'
 if not DEBUG:
+    # Create directory if it does not exsist.
+    if not os.path.exists(os.path.join(BASE_DIR, "etc")):
+        print("Created etc directory.")
+        os.mkdir(os.path.join(BASE_DIR, "etc"))
+    
     try:
-        with open("etc/secret_key.txt") as f:
+        with open(os.path.join(BASE_DIR, "etc/secret_key.txt")) as f:
             SECRET_KEY = f.read().strip()
     except FileNotFoundError:
         # todo - generate secret_key.txt automatically
