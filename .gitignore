@@ -4,6 +4,6 @@ secret_key.txt
 *.sqlite3
 __pycache__/
 /static/
+/media/
 venv/
 *.log
-/media/*
