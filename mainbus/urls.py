@@ -13,8 +13,7 @@ from apps.filestore import urls as filestore_urls
 urlpatterns = [
     path('', include(base_urls), name="base"),
     path('admin/', admin.site.urls, name='admin'),
-    path('auth/', include(authentication_urls), name="auth"),
     path('poker/', include(poker_urls), name='poker'),
 	path('factory/', include(factory_urls), name='factory'),
 	path('f/', include(filestore_urls), name='filestore'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + authentication_urls
