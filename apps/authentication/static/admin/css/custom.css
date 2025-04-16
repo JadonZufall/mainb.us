@@ -1,0 +1,16 @@
+select {
+	width: 90%;
+}
+
+label[for="id_groups"], label[for="id_permissions"] {
+	display: none;
+}
+
+.inline-boolean {
+	display: inline-block;
+	vertical-align: top;
+}
+
+div.form-row > div:has(.flex-container > .inline-boolean) {
+	display: inline-block;
+}

@@ -28,13 +28,13 @@ class UserManager(BaseUserManager):
 	def validate_username(self, username: str) -> tuple[bool, str]:
 		# Username must be 5 characters or longer.
 		if len(username) < 5:
-			return False
+			return False, "Password must be 5 character or longer."
 		
 		# Username must only contain alpha numeric characters.
 		if not username.isalnum():
-			return False
+			return False, "Password may only contain alpha numeric characters."
 		
-		return True
+		return True, "Okay"
 	
 	def create_user(self, username: str, password: str=None, **kwargs) -> "User":
 		if not username:
@@ -53,6 +53,7 @@ class UserManager(BaseUserManager):
 	
 	def create_superuser(self, username: str, password: str=None, **kwargs) -> "User":
 		kwargs.setdefault("is_superuser", True)
+		kwargs.setdefault("is_staff", True)
 		return self.create_user(username=username, password=password, **kwargs)
 
 
@@ -60,17 +61,27 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
 	username = models.CharField(max_length=32, unique=True)
 
+	is_active = models.BooleanField(default=True)
+	is_staff = models.BooleanField(default=False)
 	is_superuser = models.BooleanField(default=False)
 
-	date_create = models.DateTimeField(auto_now_add=True)
-	date_edited = models.DateTimeField(auto_now=True)
+	date_created = models.DateTimeField(auto_now_add=True)
+	date_altered = models.DateTimeField(auto_now=True)
 
 	groups = models.ManyToManyField(
-		"Permission",
+		Group,
 		related_name="user_set",
 		blank=True,
 		help_text="The groups this user belongs to.",
-		verbose_name="groups"
+		verbose_name="groups",
+	)
+
+	permissions = models.ManyToManyField(
+		Permission,
+		related_name="permissions_set",
+		blank=True,
+		help_text="The permissions this user holds.",
+		verbose_name="permissions",
 	)
 
 	objects = UserManager()
@@ -80,7 +91,15 @@ class User(AbstractBaseUser):
 
 	def __str__(self) -> str: return self.username
 
-	def has_permission(self, code: str) -> bool:
+	def has_perm(self, code: str) -> bool:
+		print(f"has_perm('{code}')")
+		if self.is_superuser:
+			return True
+
 		return self.permissions.filter(code=code).exists()
+
+	def has_module_perms(self, label: str) -> bool:
+		print(f"has_module_perm('{label}')")
+		return True
 
 	
