@@ -46,7 +46,11 @@ function _startUpdateUserStatusInterval() {
 					'X-CSRFToken': CSRF_TOKEN
 				}
 			})
-				.catch(error => console.error("Status update failed:", error));
+				.catch(error => {
+					console.error("Status update failed:", error);
+					_stopUpdateUserStatusInterval();
+					// TODO: Need to establish reconnect when connection fails.
+				});
 		}, 300000); // 300,000 ms = 5 minutes
 		return true;
 	}
