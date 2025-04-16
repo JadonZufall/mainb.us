@@ -1,5 +1,9 @@
 from typing import Optional
+
+from datetime import timedelta
+
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import BaseUserManager
 
@@ -68,6 +72,8 @@ class User(AbstractBaseUser):
 	date_created = models.DateTimeField(auto_now_add=True)
 	date_altered = models.DateTimeField(auto_now=True)
 
+	last_online = models.DateTimeField(null=True, default=None)
+
 	groups = models.ManyToManyField(
 		Group,
 		related_name="user_set",
@@ -92,14 +98,24 @@ class User(AbstractBaseUser):
 	def __str__(self) -> str: return self.username
 
 	def has_perm(self, code: str) -> bool:
-		print(f"has_perm('{code}')")
 		if self.is_superuser:
 			return True
 
 		return self.permissions.filter(code=code).exists()
 
 	def has_module_perms(self, label: str) -> bool:
-		print(f"has_module_perm('{label}')")
-		return True
+		if self.is_superuser:
+			return True
+		
+		#todo implement this function properly.
+		return False
+	
+	@property
+	def is_online(self) -> bool:
+		if self.last_online is None:
+			return False
+		else:
+			return self.last_online >= timezone.now() - timedelta(minutes=5)
+
 
 	

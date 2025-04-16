@@ -6,8 +6,9 @@
 		<title>{% block title %}Mainbus{% endblock %}</title>
 		{% block header %}
 
-
 		{% endblock %}
+		<script src="{% static 'js/lib_csrf_token.js' %}"></script>
+		<script src="{% static 'js/lib_local_user.js' %}"></script>
 	</head>
 
 	<body>

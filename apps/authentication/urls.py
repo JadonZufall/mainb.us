@@ -1,5 +1,4 @@
-from django.urls import path, include
-
+from django.urls import path
 
 # this one has to be weird cuz I want it to be
 # <url>/u/<username>
@@ -8,5 +7,4 @@ from django.urls import path, include
 # <url>/a/signin
 # <url>/a/signout
 urlpatterns = [
-
 ]

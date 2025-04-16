@@ -13,7 +13,6 @@ class UserAdminForm(forms.ModelForm):
 		super().__init__(*args, **kwargs)
 		for key, value in self.fields.items():
 			if isinstance(value, forms.fields.BooleanField):
-				print(key)
 				value.widget.attrs.update({"class": "inline-boolean"})
 
 
@@ -32,7 +31,7 @@ class UserAdmin(admin.ModelAdmin):
 		"username",
 	]
 	readonly_fields = [
-		"password", "date_created", "date_altered", "last_login",
+		"password", "date_created", "date_altered", "last_login", "last_online",
 	]
 	filter_horizontal = [
 		"groups",
@@ -50,7 +49,7 @@ class UserAdmin(admin.ModelAdmin):
 			"fields": ["is_active", "is_staff", "is_superuser",],
 		}],
 		["Metadata", {
-			"fields": ["date_created", "date_altered", "last_login",],
+			"fields": ["date_created", "date_altered", "last_login", "last_online",],
 		}],
 		["Groups", {
 			"fields": ["groups",],
