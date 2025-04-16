@@ -19,9 +19,15 @@ const Cookies = {
 	},
 	iter: () => {
 		for (let cookie of document.cookie.split(";")) {
-			yield cookie;
+			yield cookie.trim();
 		}
 		return null;
+	},
+	exists: (key) => {
+		for (let k of Cookies.keys()) {
+			if (key === k) { return true; }
+		}
+		return false;
 	},
 	keys: () => {
 		for (let cookie of document.cookie.split(";")) {
