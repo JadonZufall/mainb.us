@@ -65,8 +65,13 @@ class User(AbstractBaseUser):
 	date_create = models.DateTimeField(auto_now_add=True)
 	date_edited = models.DateTimeField(auto_now=True)
 
-	permissions = models.ManyToManyField("Permission", blank=True)
-	groups = models.ManyToManyField("Permission", blank=True)
+	groups = models.ManyToManyField(
+		"Permission",
+		related_name="user_set",
+		blank=True,
+		help_text="The groups this user belongs to.",
+		verbose_name="groups"
+	)
 
 	objects = UserManager()
 

@@ -16,4 +16,4 @@ urlpatterns = [
     path('poker/', include(poker_urls), name='poker'),
 	path('factory/', include(factory_urls), name='factory'),
 	path('f/', include(filestore_urls), name='filestore'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + authentication_urls
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + authentication_urls.urlpatterns

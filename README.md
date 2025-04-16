@@ -11,3 +11,12 @@ mainb.us {
     client_max_body_size 100M;  # Increase this value as needed (e.g., 100MB)
 }
 ```
+
+## Setup
+TODO
+
+### Development
+TODO
+
+### Production
+TODO
