@@ -61,8 +61,15 @@ class UserReport(models.Model):
 
 
 class UserSupportTicket(models.Model):
-	author = models.ForeignKey(settings.AUTH_USER_MODEL)
-	helper = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
+	author = models.ForeignKey(
+		settings.AUTH_USER_MODEL,
+		on_delete=models.CASCADE,
+	)
+	helper = models.ForeignKey(
+		settings.AUTH_USER_MODEL, 
+		null=True,
+		on_delete=models.CASCADE,
+	)
 
 	status = models.CharField(
 		max_length=32,

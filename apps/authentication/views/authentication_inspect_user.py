@@ -9,7 +9,7 @@ from django.shortcuts import render
 
 import apps.authentication.models as models
 
-class UserView(View):
+class InspectUserView(View):
 	def get(self, request: HttpRequest, username: str) -> HttpResponse:
 		try:
 			user = models.User.objects.get(username=username)

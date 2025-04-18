@@ -4,9 +4,9 @@ from django.http import HttpRequest
 from django.shortcuts import render
 
 
-class PermissionView(View):
-    def get(self, request: HttpRequest) -> HttpResponse:
+class SigninView(View):
+    def get(self, request: HttpRequest, groupname: str) -> HttpResponse:
         pass
     
-    def post(self, request: HttpRequest) -> HttpResponse:
+    def post(self, request: HttpRequest, groupname: str) -> HttpResponse:
         pass

@@ -78,6 +78,7 @@ INSTALLED_APPS: list = [
     'mainbus.apps.FactoryConfig',
     'mainbus.apps.FilestoreConfig',
     'mainbus.apps.SupportConfig',
+
 ]
 
 # Middle wear
@@ -91,6 +92,10 @@ MIDDLEWARE: list = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'apps.authentication.backends.auth.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 # Configure templates
 TEMPLATES: list = [

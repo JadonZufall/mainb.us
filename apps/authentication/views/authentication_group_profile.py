@@ -4,7 +4,7 @@ from django.http import HttpRequest
 from django.shortcuts import render
 
 
-class GroupView(View):
+class GroupProfileView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         pass
     
