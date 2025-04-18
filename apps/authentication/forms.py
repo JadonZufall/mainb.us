@@ -4,6 +4,10 @@ from .models import User
 
 
 class UserSignupForm(forms.ModelForm):
+    username = forms.CharField(
+        label="Username",
+        widget=forms.TextInput,
+    )
     password = forms.CharField(
         label="Password",
         widget=forms.PasswordInput,
@@ -15,7 +19,7 @@ class UserSignupForm(forms.ModelForm):
     
     class Meta:
         model: object = User
-        fields: list[str] = ["username", "email",]
+        fields: list[str] = ["username", "password",]
         
     def clean_password(self) -> None:
         a: str = self.cleaned_data.get("password")
@@ -26,7 +30,14 @@ class UserSignupForm(forms.ModelForm):
 
 
 class UserSigninForm(forms.ModelForm):
-    pass
+    username = forms.CharField(
+        label="username",
+        widget=forms.TextInput,
+    )
+    password = forms.CharField(
+        label="password",
+        widget=forms.PasswordInput,
+    )
 
 
 class UserSignoutForm(forms.ModelForm):

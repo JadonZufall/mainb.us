@@ -21,7 +21,10 @@ class UserAdmin(admin.ModelAdmin):
 	form = UserAdminForm
 
 	list_display = [
-		"username", "is_active", "is_staff", "is_superuser",
+		"username", 
+		"is_active", 
+		"is_staff", 
+		"is_superuser",
 	]
 	ordering = [
 		"username",
