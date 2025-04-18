@@ -77,6 +77,7 @@ INSTALLED_APPS: list = [
     'mainbus.apps.WikiConfig',
     'mainbus.apps.FactoryConfig',
     'mainbus.apps.FilestoreConfig',
+    'mainbus.apps.SupportConfig',
 ]
 
 # Middle wear
