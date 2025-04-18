@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ValidationError
-from .models import User
+from apps.authentication.models import User
 
 
 class UserSignupForm(forms.ModelForm):
@@ -27,21 +27,3 @@ class UserSignupForm(forms.ModelForm):
         if a and b and a != b:
             raise ValidationError("Passwords do not match.")
         return a
-
-
-class UserSigninForm(forms.ModelForm):
-    username = forms.CharField(
-        label="username",
-        widget=forms.TextInput,
-    )
-    password = forms.CharField(
-        label="password",
-        widget=forms.PasswordInput,
-    )
-
-
-class UserSignoutForm(forms.ModelForm):
-    pass
-
-
-    
