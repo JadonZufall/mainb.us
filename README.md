@@ -29,9 +29,6 @@ Mainbus is a website powered by Django and serves as a personal multipurpose hos
  ┗ 📜db.sqlite3
 ```
 
-
-
-
 ## Setup
 TODO
 
@@ -48,3 +45,15 @@ mainb.us {
     client_max_body_size 100M;  # Increase this value as needed (e.g., 100MB)
 }
 ```
+
+## Tool Documentation
+TODO
+
+## Application Descriptions
+TODO
+
+## Models
+TODO
+
+## Views
+TODO
