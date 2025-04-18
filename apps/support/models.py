@@ -64,12 +64,12 @@ class UserSupportTicket(models.Model):
 	author = models.ForeignKey(settings.AUTH_USER_MODEL)
 	helper = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
 
-
 	status = models.CharField(
 		max_length=32,
 		choices=[
-			("pending", "Pending"),
-			("on_going", "On Going"),
+			("open", "Open"),
+			("escalated", "Escalated"),
+			("critical", "Critical"),
 			("closed", "Closed"),
 		]
 	)
