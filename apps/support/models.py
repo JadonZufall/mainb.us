@@ -50,6 +50,7 @@ class UserReport(models.Model):
 		help_text="Notes on how the report was resolved.",
 		max_length=1024,
 	)
+	resolution_date = models.DateTimeField(null=True, default=None)
 
 	date_created = models.DateTimeField(auto_now_add=True)
 	date_altered = models.DateTimeField(auto_now=True)
