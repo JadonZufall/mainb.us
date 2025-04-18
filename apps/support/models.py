@@ -39,7 +39,7 @@ class UserReport(models.Model):
 	resolution_user = models.ForeignKey(
 		settings.AUTH_USER_MODEL,
 		related_name="resolved_by",
-		on_delete=models.SET_NULL,
+		on_delete=models.CASCADE,
 		verbose_name="Resolution User",
 		help_text="The staff member that resolved this report.",
 	)
@@ -63,10 +63,12 @@ class UserReport(models.Model):
 class UserSupportTicket(models.Model):
 	author = models.ForeignKey(
 		settings.AUTH_USER_MODEL,
+		related_name="authored_by",
 		on_delete=models.CASCADE,
 	)
-	helper = models.ForeignKey(
-		settings.AUTH_USER_MODEL, 
+	reviewer = models.ForeignKey(
+		settings.AUTH_USER_MODEL,
+		related_name="reviewed_by",
 		null=True,
 		on_delete=models.CASCADE,
 	)
