@@ -26,6 +26,9 @@ class File(models.Model):
 	views = models.PositiveBigIntegerField(
 		default=0,
 	)
+	downloads = models.PositiveBigIntegerField(
+		default=0
+	)
 	author = models.ForeignKey(
 		settings.AUTH_USER_MODEL, 
 		on_delete=models.SET_NULL, 			# When the user who authored the file is deleted the file sets it's author to NULL.
