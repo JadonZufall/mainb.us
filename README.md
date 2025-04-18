@@ -2,57 +2,34 @@
 Mainbus is a website powered by Django and serves as a personal multipurpose hosting website for myself and possibly some close friends to host projects and other content on.
 
 ## File Structure
-|   `apps`
+```
+📂./
+ ┣ 📂/apps
+ ┃ ┣ 📂/api
+ ┃ ┃ ┗ ...
+ ┃ ┣ 📂/authentication
+ ┃ ┃ ┗ ...
+ ┃ ┣ 📂/base
+ ┃ ┃ ┗ ...
+ ┃ ┗ ...
+ ┣ 📂/mainbus
+ ┃ ┗ ...
+ ┣ 📂/media
+ ┃ ┗ ...
+ ┣ 📂/static
+ ┃ ┗ ...
+ ┣ 📂/temp
+ ┃ ┗ ...
+ ┣ 📂/tools
+ ┃ ┗ ...
+ ┣ 📜.DEBUG
+ ┣ 📜mainbus.log
+ ┣ 📜README.md
+ ┣ 📜manage.py
+ ┗ 📜db.sqlite3
+```
 
-|   |   *Contains all Django applications for the website*
 
-|   |   `api`
-
-|   |   `authentication`
-
-|   |   `base`
-
-|   |   `...`
-
-|   `mainbus`
-
-|   |   *The main/core directory for the website*
-
-|   `*media`
-
-|   |   *Not managed by github but its where the media uploaded to filestore is stored*
-
-|   `*static`
-
-|   |   *Where Django puts the collected static content.*
-
-|   `temp`
-
-|   |   *Contains temporary content that needs to go elsewhere later*
-
-|   `tools`
-
-|   |   *Contains various tools for both production and development*
-
-|   <`.Debug`>
-
-|   |   *If this file is present Django runs in DEBUG mode*
-
-|   <`mainbus.log`>
-
-|   |   *Where logging information is currently stored*
-
-|   <`README.md`>
-
-|   |   *This file*
-
-|   <`manage.py`>
-
-|   |   *Django manage.py used for development and commands on the webserver*
-
-|   <`db.sqlite3`>
-
-|   |   *SQLite3 database file, should probably switch off of that in prod*
 
 
 ## Setup
