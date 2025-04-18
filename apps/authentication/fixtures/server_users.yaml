@@ -1,0 +1,46 @@
+# Mainbus account used by automated processes on the server.
+-	model: apps.authentication.User
+	pk: 1
+	fields:
+		username: "mainbus"
+		password: ""
+		is_staff: true
+		is_superuser: true
+		is_bot: true
+		is_locked: true
+		is_fixture: true
+
+# System account used by system commands, manually inputted but from the server.
+-	model: apps.authentication.User
+	pk: 2
+	fields:
+		username: "system"
+		password: ""
+		is_staff: true
+		is_superuser: true
+		is_bot: true
+		is_locked: true
+		is_fixture: true
+
+# Mainbus account used for some administrator actions.
+-	model: apps.authentication.User
+	pk: 3
+	fields:
+		username: "administrator"
+		pasword: ""
+		is_staff: true
+		is_superuser: true
+		is_bot: true
+		is_locked: true
+		is_fixture: true
+
+-	model: apps.authentication.User
+	pk: 4
+	fields:
+		username: "developer"
+		password: ""
+		is_staff: true
+		is_superuser: true
+		is_bot: true
+		is_locked: true
+		is_fixture: true
