@@ -4,6 +4,9 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 APPS_DIR = os.path.join(BASE_DIR, "apps")
+if not os.path.exists(APPS_DIR):
+    print("Creating apps directory...")
+    os.mkdir(APPS_DIR)
 
 # Checks if is debug mode.
 DEBUG: bool = os.path.exists(".DEBUG")
