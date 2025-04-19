@@ -1,0 +1,39 @@
+a.table-link {
+	color: black;
+	text-decoration: none;
+}
+
+table.vmdash-table {
+	border-collapse: collapse;
+	border-spacing: 0 0;
+}
+
+table.vmdash-table > tbody > tr > th {
+	color: whitesmoke;
+	background-color: black;
+	text-decoration: underline;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+table.vmdash-table > tbody > tr > th, table.vmdash-table > tbody > tr > td {
+	min-width: 100px;
+	border: 1px solid;
+	text-align: center;
+}
+
+td[status="Okay"]::after {
+	content: "✅";
+}
+
+td[status="Warn"]::after {
+	content: "⚠️";
+}
+
+td[status="Crit"]::after {
+	content: "❗";
+}
+
+td[status="Load"]::after {
+	content: "🔄";
+}

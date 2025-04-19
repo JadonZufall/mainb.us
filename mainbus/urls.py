@@ -9,6 +9,7 @@ from apps.authentication import urls as authentication_urls
 from apps.poker import urls as poker_urls
 from apps.factory import urls as factory_urls
 from apps.filestore import urls as filestore_urls
+from apps.vmdash import urls as vmdash_urls
 
 
 urlpatterns = [
@@ -18,4 +19,5 @@ urlpatterns = [
     path('poker/', include(poker_urls), name='poker'),
 	path('factory/', include(factory_urls), name='factory'),
 	path('f/', include(filestore_urls), name='filestore'),
+	path('vmdash/', include(vmdash_urls), name="vmdash"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + authentication_urls.urlpatterns

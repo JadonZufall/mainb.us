@@ -7,6 +7,7 @@ from apps.factory.apps import FactoryConfig
 from apps.filestore.apps import FilestoreConfig
 from apps.wiki.apps import WikiConfig
 from apps.support.apps import SupportConfig
+from apps.vmdash.apps import VMDashConfig
 
 #todo: currently this does nothing
 import os

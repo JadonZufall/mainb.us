@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load base_extras %}
+
+{% block title %}VMDash{% endblock %}
+{% block header %}
+	<link rel="stylesheet" href="{% static 'css/vmdash.css' %}">
+{% endblock %}
+
+{% block content %}
+	<h1>Vehicle Management Dashboard</h1>
+	<button>New Car</button>
+	<table class="vmdash-table">
+		<tr>
+			<th>Name</th>
+			<th>Make</th>
+			<th>Model</th>
+			<th>Year</th>
+			<th>Miles</th>
+			<th>Status</th>
+		</tr>
+		{% for car in cars %}
+		<tr>
+			<td><a class="table-link" href="{{ car|index:'url' }}">{{ car|index_attr:'model.name' }}</a></td>
+			<td><a class="table-link" href="{{ car|index:'url' }}">{{ car|index_attr:'model.make' }}</a></td>
+			<td><a class="table-link" href="{{ car|index:'url' }}">{{ car|index_attr:'model.model' }}</a></td>
+			<td><a class="table-link" href="{{ car|index:'url' }}">{{ car|index_attr:'model.year' }}</a></td>
+			<td><a class="table-link" href="{{ car|index:'url' }}">{{ car|index_attr:'model.miles' }}</a></td>
+			<td status="{{ car|index:'status' }}"></td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}
