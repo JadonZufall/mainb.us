@@ -70,7 +70,6 @@ class Car(models.Model):
 	maintenance = models.ManyToManyField(
 		MaintenanceType,
 		blank=True,
-		null=True,
 	)
 	miles = models.IntegerField(
 		verbose_name="Miles",
