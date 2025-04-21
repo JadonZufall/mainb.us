@@ -1,39 +1,100 @@
-a.table-link {
-	color: black;
-	text-decoration: none;
+.vmdash-card {
+	display: inline-block;
+	width: 500px;
+	background-color: whitesmoke;
+	margin: 10px 10px 10px 10px;
+	padding: 15px 15px 15px 15px;
+	border-radius: 15px;
+	box-shadow: 5px 4px 0px lightgrey;
 }
 
-table.vmdash-table {
-	border-collapse: collapse;
-	border-spacing: 0 0;
+.vmdash-card .card-head {
+	display: inline-block;
+	text-align: left;
 }
 
-table.vmdash-table > tbody > tr > th {
-	color: whitesmoke;
-	background-color: black;
+.vmdash-card .card-head .card-name {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.vmdash-card .card-head .card-desc {
+	display: inline-block;
+	font-style: italic;
 	text-decoration: underline;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
+	color: #404040;
 }
 
-table.vmdash-table > tbody > tr > th, table.vmdash-table > tbody > tr > td {
-	min-width: 100px;
-	border: 1px solid;
-	text-align: center;
+.vmdash-card .card-content {
+	display: inline-block;
+	margin-left: 50px;
 }
 
-td[status="Okay"]::after {
+.vmdash-card .card-status {
+	float: inline-start;
+	margin: 5px 5px 0px 5px;
+}
+
+.card-status span {
+	font-size: 21px;
+	line-height: 21px;
+}
+
+.card-status span::after {
+	content: "🔄";
+}
+
+.card-status span[status="okay"]::after {
 	content: "✅";
 }
 
-td[status="Warn"]::after {
+.card-status span[status="warn"]::after {
 	content: "⚠️";
 }
 
-td[status="Crit"]::after {
+.card-status span[status="crit"]::after {
 	content: "❗";
 }
 
-td[status="Load"]::after {
-	content: "🔄";
+.chip-dock {
+	float: inline-end;
 }
+
+.card-foot {
+	z-index: 2;
+	float: bottom;
+}
+
+.edit-btn {
+	color: white;
+	background-color: lightskyblue;
+	border-radius: 6px;
+	box-shadow: 0;
+	margin: 0;
+	margin-left: 5px;
+	border: 0;
+	width: 75px;
+	height: 35px;
+	float: inline-end;
+	font-size: 18px;
+	padding: 5px 5px 5px 5px;
+	cursor: pointer;
+}
+
+.delete-btn {
+	color: white;
+	background-color: red;
+	border-radius: 6px;
+	box-shadow: 0;
+	margin: 0;
+	margin-left: 5px;
+	border: 0;
+	width: 75px;
+	height: 35px;
+	float: inline-end;
+	font-size: 18px;
+	padding: 5px 5px 5px 5px;
+	cursor: pointer;
+}
+

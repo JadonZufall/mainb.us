@@ -67,16 +67,16 @@ class Car(models.Model):
 		blank=True,
 		null=True,
 	)
+	miles = models.IntegerField(
+		verbose_name="Miles",
+		default=0,
+		help_text="The miles that are on the car",
+	)
 	maintenance = models.ManyToManyField(
 		MaintenanceType,
 		blank=True,
 	)
-	miles = models.IntegerField(
-		verbose_name="Miles",
-		blank=True,
-		null=True,
-		help_text="The miles that are on the car",
-	)
+	
 
 
 	

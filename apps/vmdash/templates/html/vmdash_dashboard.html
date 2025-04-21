@@ -4,12 +4,65 @@
 
 {% block title %}VMDash{% endblock %}
 {% block header %}
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
 	<link rel="stylesheet" href="{% static 'css/vmdash.css' %}">
+	<script src="{% static 'js/vmdash_cards.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 	<h1>Vehicle Management Dashboard</h1>
-	<button>New Car</button>
+	<!--<button>New Car</button>-->
+
+	{% for car in cars %}
+	<div class="vmdash-card" id="{{ car|index:'pk' }}">
+		
+		<div class="card-head">
+			<h2 class="card-name">{{ car|index_attr:'model.name' }}</h2>
+			<div class="card-desc">
+				<span>{{ car|index_attr:'model.year' }}</span>
+				<span>{{ car|index_attr:'model.make' }}</span>
+				<span>{{ car|index_attr:'model.model' }}</span>
+			</div>
+		</div>
+
+		<div class="chip-dock">
+			<div class="chip" status="online">
+				<div class="chip-bg">
+					<div class="chip-fg"></div>
+					<img src="{% static 'img/avatar_placeholder.jpg' %}" alt="" width="96" height="96">
+				</div>
+				<a href="{{ car|index:'owner_url' }}">{{ car|index:'owner_name' }}</a>
+			</div>
+		</div>
+
+		<div class="card-status">
+			<span status={{ car|index:'status' }}></span>
+		</div>
+		
+		<br>
+		
+		<div class="card-content">
+			<span>{{ car|index_attr:'model.vin' }}</span>
+			<input id="input-vin-{{ car|index:'pk' }}" hidden></input>
+			<br>
+			<span>{{ car|index_attr:'model.plate' }}</span>
+			<input id="input-plate-{{ car|index:'pk' }}" hidden></input>
+			<br>
+			<span>{{ car|index_attr:'model.miles' }}<label> miles</label></span>
+			<input id="input-miles-{{ car|index:'pk' }}" hidden></input>
+		</div>
+
+		<div class="card-foot">
+			<button class="delete-btn" onclick="vmdash_card_btn_delete({{ car|index:'pk' }})">Delete</button>
+			<button class="edit-btn" onclick="vmdash_card_btn_edit({{ car|index:'pk' }})">Edit</button>
+		</div>
+		
+
+		
+	</div>
+	{% endfor %}
+
+	<!--
 	<table class="vmdash-table">
 		<tr>
 			<th>Name</th>
@@ -28,6 +81,8 @@
 			<td><a class="table-link" href="{{ car|index:'url' }}">{{ car|index_attr:'model.miles' }}</a></td>
 			<td status="{{ car|index:'status' }}"></td>
 		</tr>
+		
 		{% endfor %}
 	</table>
+	-->
 {% endblock %}

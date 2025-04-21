@@ -16,9 +16,12 @@ class VMDashboardView(View):
 		context = {
 			"cars": [
 				{
+					"pk": car.pk,
 					"model": car,
+					"owner_name": car.owner.username.capitalize(),
+					"owner_url": resolve_url("authentication_user_profile", car.owner.username),
 					"url": "",		# TODO: Should be the link to view the car
-					"status": "Okay",
+					"status": "okay",
 				}
 				for car in cars
 			]
