@@ -1,0 +1,141 @@
+variableid,variable,valueid,value
+142,Suggested VIN,,
+143,Error Code,6,6
+144,Possible Values,,
+156,Additional Error Text,,
+191,Error Text,,6 - Incomplete VIN
+196,Vehicle Descriptor,,5UXWX7C5*BA
+10,Destination Market,,
+26,Make,452,BMW
+27,Manufacturer Name,968,BMW MANUFACTURER CORPORATION / BMW NORTH AMERICA
+28,Model,1719,X3
+29,Model Year,,2011
+31,Plant City,,MUNICH
+34,Series,,
+38,Trim,,xDrive35i
+39,Vehicle Type,7,MULTIPURPOSE PASSENGER VEHICLE (MPV)
+75,Plant Country,2,GERMANY
+76,Plant Company Name,,
+77,Plant State,,
+109,Trim2,,SAV
+110,Series2,,
+114,Note,,
+136,Base Price ($),,
+195,Non-Land Use,,
+5,Body Class,7,Sport Utility Vehicle (SUV)/Multi-Purpose Vehicle (MPV)
+14,Doors,,4
+40,Windows,,
+60,Wheel Base Type,,
+159,Track Width (inches),,
+25,Gross Vehicle Weight Rating From,13,"Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)"
+49,Bed Length (inches),,
+54,Curb Weight (pounds),,
+111,Wheel Base (inches) From,,
+112,Wheel Base (inches) To,,
+184,Gross Combination Weight Rating From,,
+185,Gross Combination Weight Rating To,,
+190,Gross Vehicle Weight Rating To,,
+3,Bed Type,,
+4,Cab Type,,
+116,Trailer Type Connection,0,Not Applicable
+117,Trailer Body Type,0,Not Applicable
+118,Trailer Length (feet),,
+155,Other Trailer Info,,
+115,Number of Wheels,,
+119,Wheel Size Front (inches),,
+120,Wheel Size Rear (inches),,
+151,Custom Motorcycle Type,0,Not Applicable
+152,Motorcycle Suspension Type,0,Not Applicable
+153,Motorcycle Chassis Type,0,Not Applicable
+154,Other Motorcycle Info,,
+200,Fuel-Tank Type,,
+201,Fuel-Tank Material,,
+202,Combined Braking System (CBS),,
+203,Wheelie Mitigation,,
+147,Bus Length (feet),,
+148,Bus Floor Configuration Type,0,Not Applicable
+149,Bus Type,0,Not Applicable
+150,Other Bus Info,,
+23,Entertainment System,,
+36,Steering Location,,
+33,Number of Seats,,
+61,Number of Seat Rows,,
+37,Transmission Style,,
+63,Transmission Speeds,,
+15,Drive Type,3,AWD/All-Wheel Drive
+41,Axles,,
+145,Axle Configuration,,
+42,Brake System Type,,
+52,Brake System Description,,
+1,Other Battery Info,,
+2,Battery Type,,
+48,Number of Battery Cells per Module,,
+57,Battery Current (Amps) From,,
+58,Battery Voltage (Volts) From,,
+59,Battery Energy (kWh) From,,
+72,EV Drive Unit,,
+132,Battery Current (Amps) To,,
+133,Battery Voltage (Volts) To,,
+134,Battery Energy (kWh) To,,
+137,Number of Battery Modules per Pack,,
+138,Number of Battery Packs per Vehicle,,
+127,Charger Level,,
+128,Charger Power (kW),,
+9,Engine Number of Cylinders,,6
+11,Displacement (CC),,2979.1682352
+12,Displacement (CI),,181.8
+13,Displacement (L),,3.0
+17,Engine Stroke Cycles,,
+18,Engine Model,,
+21,Engine Power (kW),,
+24,Fuel Type - Primary,4,Gasoline
+62,Valve Train Design,,
+64,Engine Configuration,,
+66,Fuel Type - Secondary,,
+67,Fuel Delivery / Fuel Injection Type,,
+71,Engine Brake (hp) From,,300
+122,Cooling Type,,
+125,Engine Brake (hp) To,,
+126,Electrification Level,,
+129,Other Engine Info,,
+135,Turbo,,
+139,Top Speed (MPH),,
+146,Engine Manufacturer,,
+78,Pretensioner,1,Yes
+79,Seat Belt Type,1,Manual
+121,Other Restraint System Info,,"Head Inflatable Restraint for Driver, Front Passenger, Rear Outboard Driver-side and Rear Outboard Passenger-side.  Knee Inflatable Restraint for Driver.  Pretensioners for Driver and Front Passenger."
+55,Curtain Air Bag Locations,,
+56,Seat Cushion Air Bag Locations,,
+65,Front Air Bag Locations,3,1st Row (Driver and Passenger)
+69,Knee Air Bag Locations,,
+107,Side Air Bag Locations,3,1st Row (Driver and Passenger)
+86,Anti-lock Braking System (ABS),,
+99,Electronic Stability Control (ESC),,
+100,Traction Control,,
+168,Tire Pressure Monitoring System (TPMS) Type,1,Direct
+169,Active Safety System Note,,
+172,Auto-Reverse System for Windows and Sunroofs,,
+173,Automatic Pedestrian Alerting Sound (for Hybrid and EV only),,
+175,Event Data Recorder (EDR),,
+176,Keyless Ignition,,
+181,SAE Automation Level From,,
+182,SAE Automation Level To,,
+81,Adaptive Cruise Control (ACC),,
+87,Crash Imminent Braking (CIB),,
+101,Forward Collision Warning (FCW),,
+170,Dynamic Brake Support (DBS),,
+171,Pedestrian Automatic Emergency Braking (PAEB),,
+88,Blind Spot Warning (BSW),,
+102,Lane Departure Warning (LDW),,
+103,Lane Keeping Assistance (LKA),,
+193,Blind Spot Intervention (BSI),,
+194,Lane Centering Assistance,,
+104,Backup Camera,,
+105,Parking Assist,,
+183,Rear Cross Traffic Alert,,
+192,Rear Automatic Emergency Braking,,
+174,Automatic Crash Notification (ACN) / Advanced Automatic Crash Notification (AACN),,
+177,Daytime Running Light (DRL),,
+178,Headlamp Light Source,,
+179,Semiautomatic Headlamp Beam Switching,,
+180,Adaptive Driving Beam (ADB),,

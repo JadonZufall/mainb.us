@@ -1,0 +1,1020 @@
+- model: apps.location.Currency
+  pk: 1
+  fields:
+    name: United Arab Emirates Dirham
+    iso: AED
+
+- model: apps.location.Currency
+  pk: 2
+  fields:
+    name: Afghan Afghani
+    iso: AFN
+
+- model: apps.location.Currency
+  pk: 3
+  fields:
+    name: Albanian Lek
+    iso: ALL
+
+- model: apps.location.Currency
+  pk: 4
+  fields:
+    name: Armenian Dram
+    iso: AMD
+
+- model: apps.location.Currency
+  pk: 5
+  fields:
+    name: Netherlands Antillean Guilder
+    iso: ANG
+
+- model: apps.location.Currency
+  pk: 6
+  fields:
+    name: Angolan Kwanza
+    iso: AOA
+
+- model: apps.location.Currency
+  pk: 7
+  fields:
+    name: Argentine Peso
+    iso: ARS
+
+- model: apps.location.Currency
+  pk: 8
+  fields:
+    name: Australian Dollar
+    iso: AUD
+
+- model: apps.location.Currency
+  pk: 9
+  fields:
+    name: Aruban Florin
+    iso: AWG
+
+- model: apps.location.Currency
+  pk: 10
+  fields:
+    name: Azerbaijani Manat
+    iso: AZN
+
+- model: apps.location.Currency
+  pk: 11
+  fields:
+    name: Bosnia-Herzegovina Convertible Mark
+    iso: BAM
+
+- model: apps.location.Currency
+  pk: 12
+  fields:
+    name: Barbadian Dollar
+    iso: BBD
+
+- model: apps.location.Currency
+  pk: 13
+  fields:
+    name: Bangladeshi Taka
+    iso: BDT
+
+- model: apps.location.Currency
+  pk: 14
+  fields:
+    name: Bulgarian Lev
+    iso: BGN
+
+- model: apps.location.Currency
+  pk: 15
+  fields:
+    name: Bahraini Dinar
+    iso: BHD
+
+- model: apps.location.Currency
+  pk: 16
+  fields:
+    name: Burundian Franc
+    iso: BIF
+
+- model: apps.location.Currency
+  pk: 17
+  fields:
+    name: Bermudan Dollar
+    iso: BMD
+
+- model: apps.location.Currency
+  pk: 18
+  fields:
+    name: Brunei Dollar
+    iso: BND
+
+- model: apps.location.Currency
+  pk: 19
+  fields:
+    name: Bolivian Boliviano
+    iso: BOB
+
+- model: apps.location.Currency
+  pk: 20
+  fields:
+    name: Brazilian Real
+    iso: BRL
+
+- model: apps.location.Currency
+  pk: 21
+  fields:
+    name: Bahamian Dollar
+    iso: BSD
+
+- model: apps.location.Currency
+  pk: 22
+  fields:
+    name: Bitcoin
+    iso: BTC
+
+- model: apps.location.Currency
+  pk: 23
+  fields:
+    name: Bhutanese Ngultrum
+    iso: BTN
+
+- model: apps.location.Currency
+  pk: 24
+  fields:
+    name: Botswanan Pula
+    iso: BWP
+
+- model: apps.location.Currency
+  pk: 25
+  fields:
+    name: Belarusian Ruble
+    iso: BYN
+
+- model: apps.location.Currency
+  pk: 26
+  fields:
+    name: Belize Dollar
+    iso: BZD
+
+- model: apps.location.Currency
+  pk: 27
+  fields:
+    name: Canadian Dollar
+    iso: CAD
+
+- model: apps.location.Currency
+  pk: 28
+  fields:
+    name: Congolese Franc
+    iso: CDF
+
+- model: apps.location.Currency
+  pk: 29
+  fields:
+    name: Swiss Franc
+    iso: CHF
+
+- model: apps.location.Currency
+  pk: 30
+  fields:
+    name: Chilean Unit of Account (UF)
+    iso: CLF
+
+- model: apps.location.Currency
+  pk: 31
+  fields:
+    name: Chilean Peso
+    iso: CLP
+
+- model: apps.location.Currency
+  pk: 32
+  fields:
+    name: Chinese Yuan (Offshore)
+    iso: CNH
+
+- model: apps.location.Currency
+  pk: 33
+  fields:
+    name: Chinese Yuan
+    iso: CNY
+
+- model: apps.location.Currency
+  pk: 34
+  fields:
+    name: Colombian Peso
+    iso: COP
+
+- model: apps.location.Currency
+  pk: 35
+  fields:
+    name: Costa Rican Colón
+    iso: CRC
+
+- model: apps.location.Currency
+  pk: 36
+  fields:
+    name: Cuban Convertible Peso
+    iso: CUC
+
+- model: apps.location.Currency
+  pk: 37
+  fields:
+    name: Cuban Peso
+    iso: CUP
+
+- model: apps.location.Currency
+  pk: 38
+  fields:
+    name: Cape Verdean Escudo
+    iso: CVE
+
+- model: apps.location.Currency
+  pk: 39
+  fields:
+    name: Czech Republic Koruna
+    iso: CZK
+
+- model: apps.location.Currency
+  pk: 40
+  fields:
+    name: Djiboutian Franc
+    iso: DJF
+
+- model: apps.location.Currency
+  pk: 41
+  fields:
+    name: Danish Krone
+    iso: DKK
+
+- model: apps.location.Currency
+  pk: 42
+  fields:
+    name: Dominican Peso
+    iso: DOP
+
+- model: apps.location.Currency
+  pk: 43
+  fields:
+    name: Algerian Dinar
+    iso: DZD
+
+- model: apps.location.Currency
+  pk: 44
+  fields:
+    name: Egyptian Pound
+    iso: EGP
+
+- model: apps.location.Currency
+  pk: 45
+  fields:
+    name: Eritrean Nakfa
+    iso: ERN
+
+- model: apps.location.Currency
+  pk: 46
+  fields:
+    name: Ethiopian Birr
+    iso: ETB
+
+- model: apps.location.Currency
+  pk: 47
+  fields:
+    name: Euro
+    iso: EUR
+
+- model: apps.location.Currency
+  pk: 48
+  fields:
+    name: Fijian Dollar
+    iso: FJD
+
+- model: apps.location.Currency
+  pk: 49
+  fields:
+    name: Falkland Islands Pound
+    iso: FKP
+
+- model: apps.location.Currency
+  pk: 50
+  fields:
+    name: British Pound Sterling
+    iso: GBP
+
+- model: apps.location.Currency
+  pk: 51
+  fields:
+    name: Georgian Lari
+    iso: GEL
+
+- model: apps.location.Currency
+  pk: 52
+  fields:
+    name: Guernsey Pound
+    iso: GGP
+
+- model: apps.location.Currency
+  pk: 53
+  fields:
+    name: Ghanaian Cedi
+    iso: GHS
+
+- model: apps.location.Currency
+  pk: 54
+  fields:
+    name: Gibraltar Pound
+    iso: GIP
+
+- model: apps.location.Currency
+  pk: 55
+  fields:
+    name: Gambian Dalasi
+    iso: GMD
+
+- model: apps.location.Currency
+  pk: 56
+  fields:
+    name: Guinean Franc
+    iso: GNF
+
+- model: apps.location.Currency
+  pk: 57
+  fields:
+    name: Guatemalan Quetzal
+    iso: GTQ
+
+- model: apps.location.Currency
+  pk: 58
+  fields:
+    name: Guyanaese Dollar
+    iso: GYD
+
+- model: apps.location.Currency
+  pk: 59
+  fields:
+    name: Hong Kong Dollar
+    iso: HKD
+
+- model: apps.location.Currency
+  pk: 60
+  fields:
+    name: Honduran Lempira
+    iso: HNL
+
+- model: apps.location.Currency
+  pk: 61
+  fields:
+    name: Croatian Kuna
+    iso: HRK
+
+- model: apps.location.Currency
+  pk: 62
+  fields:
+    name: Haitian Gourde
+    iso: HTG
+
+- model: apps.location.Currency
+  pk: 63
+  fields:
+    name: Hungarian Forint
+    iso: HUF
+
+- model: apps.location.Currency
+  pk: 64
+  fields:
+    name: Indonesian Rupiah
+    iso: IDR
+
+- model: apps.location.Currency
+  pk: 65
+  fields:
+    name: Israeli New Sheqel
+    iso: ILS
+
+- model: apps.location.Currency
+  pk: 66
+  fields:
+    name: Manx pound
+    iso: IMP
+
+- model: apps.location.Currency
+  pk: 67
+  fields:
+    name: Indian Rupee
+    iso: INR
+
+- model: apps.location.Currency
+  pk: 68
+  fields:
+    name: Iraqi Dinar
+    iso: IQD
+
+- model: apps.location.Currency
+  pk: 69
+  fields:
+    name: Iranian Rial
+    iso: IRR
+
+- model: apps.location.Currency
+  pk: 70
+  fields:
+    name: Icelandic Króna
+    iso: ISK
+
+- model: apps.location.Currency
+  pk: 71
+  fields:
+    name: Jersey Pound
+    iso: JEP
+
+- model: apps.location.Currency
+  pk: 72
+  fields:
+    name: Jamaican Dollar
+    iso: JMD
+
+- model: apps.location.Currency
+  pk: 73
+  fields:
+    name: Jordanian Dinar
+    iso: JOD
+
+- model: apps.location.Currency
+  pk: 74
+  fields:
+    name: Japanese Yen
+    iso: JPY
+
+- model: apps.location.Currency
+  pk: 75
+  fields:
+    name: Kenyan Shilling
+    iso: KES
+
+- model: apps.location.Currency
+  pk: 76
+  fields:
+    name: Kyrgystani Som
+    iso: KGS
+
+- model: apps.location.Currency
+  pk: 77
+  fields:
+    name: Cambodian Riel
+    iso: KHR
+
+- model: apps.location.Currency
+  pk: 78
+  fields:
+    name: Comorian Franc
+    iso: KMF
+
+- model: apps.location.Currency
+  pk: 79
+  fields:
+    name: North Korean Won
+    iso: KPW
+
+- model: apps.location.Currency
+  pk: 80
+  fields:
+    name: South Korean Won
+    iso: KRW
+
+- model: apps.location.Currency
+  pk: 81
+  fields:
+    name: Kuwaiti Dinar
+    iso: KWD
+
+- model: apps.location.Currency
+  pk: 82
+  fields:
+    name: Cayman Islands Dollar
+    iso: KYD
+
+- model: apps.location.Currency
+  pk: 83
+  fields:
+    name: Kazakhstani Tenge
+    iso: KZT
+
+- model: apps.location.Currency
+  pk: 84
+  fields:
+    name: Laotian Kip
+    iso: LAK
+
+- model: apps.location.Currency
+  pk: 85
+  fields:
+    name: Lebanese Pound
+    iso: LBP
+
+- model: apps.location.Currency
+  pk: 86
+  fields:
+    name: Sri Lankan Rupee
+    iso: LKR
+
+- model: apps.location.Currency
+  pk: 87
+  fields:
+    name: Liberian Dollar
+    iso: LRD
+
+- model: apps.location.Currency
+  pk: 88
+  fields:
+    name: Lesotho Loti
+    iso: LSL
+
+- model: apps.location.Currency
+  pk: 89
+  fields:
+    name: Libyan Dinar
+    iso: LYD
+
+- model: apps.location.Currency
+  pk: 90
+  fields:
+    name: Moroccan Dirham
+    iso: MAD
+
+- model: apps.location.Currency
+  pk: 91
+  fields:
+    name: Moldovan Leu
+    iso: MDL
+
+- model: apps.location.Currency
+  pk: 92
+  fields:
+    name: Malagasy Ariary
+    iso: MGA
+
+- model: apps.location.Currency
+  pk: 93
+  fields:
+    name: Macedonian Denar
+    iso: MKD
+
+- model: apps.location.Currency
+  pk: 94
+  fields:
+    name: Myanma Kyat
+    iso: MMK
+
+- model: apps.location.Currency
+  pk: 95
+  fields:
+    name: Mongolian Tugrik
+    iso: MNT
+
+- model: apps.location.Currency
+  pk: 96
+  fields:
+    name: Macanese Pataca
+    iso: MOP
+
+- model: apps.location.Currency
+  pk: 97
+  fields:
+    name: Mauritanian Ouguiya (pre-2018)
+    iso: MRO
+
+- model: apps.location.Currency
+  pk: 98
+  fields:
+    name: Mauritanian Ouguiya
+    iso: MRU
+
+- model: apps.location.Currency
+  pk: 99
+  fields:
+    name: Mauritian Rupee
+    iso: MUR
+
+- model: apps.location.Currency
+  pk: 100
+  fields:
+    name: Maldivian Rufiyaa
+    iso: MVR
+
+- model: apps.location.Currency
+  pk: 101
+  fields:
+    name: Malawian Kwacha
+    iso: MWK
+
+- model: apps.location.Currency
+  pk: 102
+  fields:
+    name: Mexican Peso
+    iso: MXN
+
+- model: apps.location.Currency
+  pk: 103
+  fields:
+    name: Malaysian Ringgit
+    iso: MYR
+
+- model: apps.location.Currency
+  pk: 104
+  fields:
+    name: Mozambican Metical
+    iso: MZN
+
+- model: apps.location.Currency
+  pk: 105
+  fields:
+    name: Namibian Dollar
+    iso: NAD
+
+- model: apps.location.Currency
+  pk: 106
+  fields:
+    name: Nigerian Naira
+    iso: NGN
+
+- model: apps.location.Currency
+  pk: 107
+  fields:
+    name: Nicaraguan Córdoba
+    iso: NIO
+
+- model: apps.location.Currency
+  pk: 108
+  fields:
+    name: Norwegian Krone
+    iso: NOK
+
+- model: apps.location.Currency
+  pk: 109
+  fields:
+    name: Nepalese Rupee
+    iso: NPR
+
+- model: apps.location.Currency
+  pk: 110
+  fields:
+    name: New Zealand Dollar
+    iso: NZD
+
+- model: apps.location.Currency
+  pk: 111
+  fields:
+    name: Omani Rial
+    iso: OMR
+
+- model: apps.location.Currency
+  pk: 112
+  fields:
+    name: Panamanian Balboa
+    iso: PAB
+
+- model: apps.location.Currency
+  pk: 113
+  fields:
+    name: Peruvian Nuevo Sol
+    iso: PEN
+
+- model: apps.location.Currency
+  pk: 114
+  fields:
+    name: Papua New Guinean Kina
+    iso: PGK
+
+- model: apps.location.Currency
+  pk: 115
+  fields:
+    name: Philippine Peso
+    iso: PHP
+
+- model: apps.location.Currency
+  pk: 116
+  fields:
+    name: Pakistani Rupee
+    iso: PKR
+
+- model: apps.location.Currency
+  pk: 117
+  fields:
+    name: Polish Zloty
+    iso: PLN
+
+- model: apps.location.Currency
+  pk: 118
+  fields:
+    name: Paraguayan Guarani
+    iso: PYG
+
+- model: apps.location.Currency
+  pk: 119
+  fields:
+    name: Qatari Rial
+    iso: QAR
+
+- model: apps.location.Currency
+  pk: 120
+  fields:
+    name: Romanian Leu
+    iso: RON
+
+- model: apps.location.Currency
+  pk: 121
+  fields:
+    name: Serbian Dinar
+    iso: RSD
+
+- model: apps.location.Currency
+  pk: 122
+  fields:
+    name: Russian Ruble
+    iso: RUB
+
+- model: apps.location.Currency
+  pk: 123
+  fields:
+    name: Rwandan Franc
+    iso: RWF
+
+- model: apps.location.Currency
+  pk: 124
+  fields:
+    name: Saudi Riyal
+    iso: SAR
+
+- model: apps.location.Currency
+  pk: 125
+  fields:
+    name: Solomon Islands Dollar
+    iso: SBD
+
+- model: apps.location.Currency
+  pk: 126
+  fields:
+    name: Seychellois Rupee
+    iso: SCR
+
+- model: apps.location.Currency
+  pk: 127
+  fields:
+    name: Sudanese Pound
+    iso: SDG
+
+- model: apps.location.Currency
+  pk: 128
+  fields:
+    name: Swedish Krona
+    iso: SEK
+
+- model: apps.location.Currency
+  pk: 129
+  fields:
+    name: Singapore Dollar
+    iso: SGD
+
+- model: apps.location.Currency
+  pk: 130
+  fields:
+    name: Saint Helena Pound
+    iso: SHP
+
+- model: apps.location.Currency
+  pk: 131
+  fields:
+    name: Sierra Leonean Leone
+    iso: SLL
+
+- model: apps.location.Currency
+  pk: 132
+  fields:
+    name: Somali Shilling
+    iso: SOS
+
+- model: apps.location.Currency
+  pk: 133
+  fields:
+    name: Surinamese Dollar
+    iso: SRD
+
+- model: apps.location.Currency
+  pk: 134
+  fields:
+    name: South Sudanese Pound
+    iso: SSP
+
+- model: apps.location.Currency
+  pk: 135
+  fields:
+    name: São Tomé and Príncipe Dobra (pre-2018)
+    iso: STD
+
+- model: apps.location.Currency
+  pk: 136
+  fields:
+    name: São Tomé and Príncipe Dobra
+    iso: STN
+
+- model: apps.location.Currency
+  pk: 137
+  fields:
+    name: Salvadoran Colón
+    iso: SVC
+
+- model: apps.location.Currency
+  pk: 138
+  fields:
+    name: Syrian Pound
+    iso: SYP
+
+- model: apps.location.Currency
+  pk: 139
+  fields:
+    name: Swazi Lilangeni
+    iso: SZL
+
+- model: apps.location.Currency
+  pk: 140
+  fields:
+    name: Thai Baht
+    iso: THB
+
+- model: apps.location.Currency
+  pk: 141
+  fields:
+    name: Tajikistani Somoni
+    iso: TJS
+
+- model: apps.location.Currency
+  pk: 142
+  fields:
+    name: Turkmenistani Manat
+    iso: TMT
+
+- model: apps.location.Currency
+  pk: 143
+  fields:
+    name: Tunisian Dinar
+    iso: TND
+
+- model: apps.location.Currency
+  pk: 144
+  fields:
+    name: Tongan Pa'anga
+    iso: TOP
+
+- model: apps.location.Currency
+  pk: 145
+  fields:
+    name: Turkish Lira
+    iso: TRY
+
+- model: apps.location.Currency
+  pk: 146
+  fields:
+    name: Trinidad and Tobago Dollar
+    iso: TTD
+
+- model: apps.location.Currency
+  pk: 147
+  fields:
+    name: New Taiwan Dollar
+    iso: TWD
+
+- model: apps.location.Currency
+  pk: 148
+  fields:
+    name: Tanzanian Shilling
+    iso: TZS
+
+- model: apps.location.Currency
+  pk: 149
+  fields:
+    name: Ukrainian Hryvnia
+    iso: UAH
+
+- model: apps.location.Currency
+  pk: 150
+  fields:
+    name: Ugandan Shilling
+    iso: UGX
+
+- model: apps.location.Currency
+  pk: 151
+  fields:
+    name: United States Dollar
+    iso: USD
+
+- model: apps.location.Currency
+  pk: 152
+  fields:
+    name: Uruguayan Peso
+    iso: UYU
+
+- model: apps.location.Currency
+  pk: 153
+  fields:
+    name: Uzbekistan Som
+    iso: UZS
+
+- model: apps.location.Currency
+  pk: 154
+  fields:
+    name: Venezuelan Bolívar Fuerte
+    iso: VEF
+
+- model: apps.location.Currency
+  pk: 155
+  fields:
+    name: Vietnamese Dong
+    iso: VND
+
+- model: apps.location.Currency
+  pk: 156
+  fields:
+    name: Vanuatu Vatu
+    iso: VUV
+
+- model: apps.location.Currency
+  pk: 157
+  fields:
+    name: Samoan Tala
+    iso: WST
+
+- model: apps.location.Currency
+  pk: 158
+  fields:
+    name: CFA Franc BEAC
+    iso: XAF
+
+- model: apps.location.Currency
+  pk: 159
+  fields:
+    name: Silver Ounce
+    iso: XAG
+
+- model: apps.location.Currency
+  pk: 160
+  fields:
+    name: Gold Ounce
+    iso: XAU
+
+- model: apps.location.Currency
+  pk: 161
+  fields:
+    name: East Caribbean Dollar
+    iso: XCD
+
+- model: apps.location.Currency
+  pk: 162
+  fields:
+    name: Special Drawing Rights
+    iso: XDR
+
+- model: apps.location.Currency
+  pk: 163
+  fields:
+    name: CFA Franc BCEAO
+    iso: XOF
+
+- model: apps.location.Currency
+  pk: 164
+  fields:
+    name: Palladium Ounce
+    iso: XPD
+
+- model: apps.location.Currency
+  pk: 165
+  fields:
+    name: CFP Franc
+    iso: XPF
+
+- model: apps.location.Currency
+  pk: 166
+  fields:
+    name: Platinum Ounce
+    iso: XPT
+
+- model: apps.location.Currency
+  pk: 167
+  fields:
+    name: Yemeni Rial
+    iso: YER
+
+- model: apps.location.Currency
+  pk: 168
+  fields:
+    name: South African Rand
+    iso: ZAR
+
+- model: apps.location.Currency
+  pk: 169
+  fields:
+    name: Zambian Kwacha
+    iso: ZMW
+
+- model: apps.location.Currency
+  pk: 170
+  fields:
+    name: Zimbabwean Dollar
+    iso: ZWL
+

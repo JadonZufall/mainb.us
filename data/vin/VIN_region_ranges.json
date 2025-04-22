@@ -1,0 +1,45 @@
+{
+	"Africa": {
+		"values": ["A", "B", "C"],
+		"countrys": {
+			"South Africa": "AA-AH",
+			"Côte d'Ivoire": "AJ-AK",
+			"Lesotho": "AL-AM",
+			"Botswana": "AN-AP",
+			"Namibia": "AR-AS",
+			"Madagascar": "AT-AU",
+			"Mauritius": "AV-AW",
+			"Tunisia": "AX-AY",
+			"Cyprus": "AZ-A1",
+			"Zimbabwe": "A2-A3",
+			"Mozambique": "A4-A5",
+			"Angola": "BA-BB",
+			"Ethiopia": "BC",
+			"Kenya": "BF-BG",
+			"Rwanda": "BH",
+			"Nigeria": "BL",
+			"Algeria": "BR",
+			"Swaziland": "BT",
+			"Uganda": "BU",
+			"Libya": "B3-B4",
+			"Egypt": "CA-CB",
+			"Morocco": "CF-CG",
+			"Zambia": "CL-CM"
+		}
+	},
+	"Asia": {
+		"values": ["H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R"]
+	},
+	"Europe": {
+		"values": ["E", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+	},
+	"North America": {
+		"values": ["1", "2", "3", "4", "5", "6", "7"]
+	},
+	"Oceania": {
+		"values": ["6"]
+	},
+	"South America": {
+		"values": ["8", "9"]
+	}
+}
