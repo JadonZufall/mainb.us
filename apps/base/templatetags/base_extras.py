@@ -31,4 +31,4 @@ def resolve_profile_picture_url(username: str):
 
 @register.simple_tag
 def resolve_profile_url(username: str):
-	return f"/u/{username}/" if username else "/u/"
+	return f"/u/{username}" if username else "/u/"

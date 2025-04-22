@@ -5,8 +5,8 @@ from django.shortcuts import render
 
 
 class UserProfileView(View):
-    def get(self, request: HttpRequest) -> HttpResponse:
-        pass
+    def get(self, request: HttpRequest, username: str) -> HttpResponse:
+        return HttpResponse("TODO: UserProfileView")
     
-    def post(self, request: HttpRequest) -> HttpResponse:
+    def post(self, request: HttpRequest, username: str) -> HttpResponse:
         pass
