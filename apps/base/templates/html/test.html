@@ -3,10 +3,20 @@
 
 {% block header %}
 
+<script src="{% static 'js/test_button.js' %}"></script>
 {% endblock %}
 
 
 {% block content %}
-{% include 'components/toggle_input.html' with initial_value="1000" group="input-group-a" %}
-{% include 'components/toggle_input_group_button.html' with text="toggle" group="input-group-a"  %}
+<style>
+	body {
+		margin: 100px 1000px;
+	}
+</style>
+{% include 'components/user_chip.html' with username='testingtoseeiftoolongvaluewillbreakthething' %}
+{% include 'components/user_chip.html' with username='admin' status='offline' %}
+{% include 'components/user_chip.html' with username='admin' status='online' %}
+{% include 'components/user_chip.html' with username='admin' status='away' %}
+{% include 'components/user_chip.html' with username='admin' status='donotdisturb' %}
+<button onclick="onTestButton()">CLICK</button>
 {% endblock %}
