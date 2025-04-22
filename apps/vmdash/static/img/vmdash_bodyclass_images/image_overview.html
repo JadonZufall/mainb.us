@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+    table {
+      border: 0.1em solid black;
+      table-layout: fixed;
+      width: 50em;
+    }
+    th,
+    td {
+      border: 0.1em solid black;
+      width: 5em;
+      overflow: hidden;
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <h2>Body Class</h2>
+    <table>
+      <tr>
+        <th style='width: 0.5em'>Id</th>
+        <th>Name</th>
+        <th>Image</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Convertible/Cabriolet</td>
+        <td><img src="1.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Minivan</td>
+        <td><img src="2.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Coupe</td>
+        <td><img src="3.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Low Speed Vehicle (LSV) / Neighborhood Electric Vehicle (NEV)</td>
+        <td><img src="4.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Hatchback/Liftback/Notchback</td>
+        <td><img src="5.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Motorcycle - Standard</td>
+        <td><img src="6.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Sport Utility Vehicle (SUV)/Multi-Purpose Vehicle (MPV)</td>
+        <td><img src="7.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Crossover Utility Vehicle (CUV)</td>
+        <td><img src="8.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Van</td>
+        <td><img src="9.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Roadster</td>
+        <td><img src="10.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Truck</td>
+        <td><img src="11.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Motorcycle - Scooter</td>
+        <td><img src="12.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Sedan/Saloon</td>
+        <td><img src="13.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>Wagon</td>
+        <td><img src="15.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Bus</td>
+        <td><img src="16.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>60</td>
+        <td>Pickup</td>
+        <td><img src="60.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>61</td>
+        <td>Trailer</td>
+        <td><img src="61.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>62</td>
+        <td>Incomplete - Cutaway</td>
+        <td><img src="62.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>63</td>
+        <td>Incomplete - Chassis Cab (Single Cab)</td>
+        <td><img src="63.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>64</td>
+        <td>Incomplete - Glider</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>65</td>
+        <td>Incomplete</td>
+        <td><img src="65.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>66</td>
+        <td>Truck-Tractor</td>
+        <td><img src="66.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>67</td>
+        <td>Incomplete - Stripped Chassis</td>
+        <td><img src="67.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>68</td>
+        <td>Streetcar / Trolley</td>
+        <td><img src="68.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>69</td>
+        <td>Off-road Vehicle - All Terrain Vehicle (ATV) (Motorcycle-style)</td>
+        <td><img src="69.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>70</td>
+        <td>Incomplete - Chassis Cab (Double Cab)</td>
+        <td><img src="70.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>71</td>
+        <td>Incomplete - School Bus Chassis</td>
+        <td><img src="71.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>72</td>
+        <td>Incomplete - Commercial Bus Chassis</td>
+        <td><img src="72.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>73</td>
+        <td>Bus - School Bus</td>
+        <td><img src="73.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>74</td>
+        <td>Incomplete - Chassis Cab (Number of Cab Unknown)</td>
+        <td><img src="74.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>75</td>
+        <td>Incomplete - Transit Bus Chassis</td>
+        <td><img src="75.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>76</td>
+        <td>Incomplete - Motor Coach Chassis</td>
+        <td><img src="76.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>77</td>
+        <td>Incomplete - Shuttle Bus Chassis</td>
+        <td><img src="77.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>78</td>
+        <td>Incomplete - Motor Home Chassis</td>
+        <td><img src="78.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>80</td>
+        <td>Motorcycle - Sport</td>
+        <td><img src="80.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>81</td>
+        <td>Motorcycle - Touring / Sport Touring</td>
+        <td><img src="81.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>82</td>
+        <td>Motorcycle - Cruiser</td>
+        <td><img src="82.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>83</td>
+        <td>Motorcycle - Three-Wheeled Motorcycle (2 Rear Wheels)</td>
+        <td><img src="83.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>84</td>
+        <td>Off-road Vehicle - Dirt Bike / Off-Road</td>
+        <td><img src="84.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>85</td>
+        <td>Motorcycle - Dual Sport / Adventure / Supermoto / On/Off-road</td>
+        <td><img src="85.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>86</td>
+        <td>Off-road Vehicle - Enduro (Off-road long distance racing)</td>
+        <td><img src="86.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>87</td>
+        <td>Motorcycle - Small / Minibike</td>
+        <td><img src="87.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>88</td>
+        <td>Off-road Vehicle - Go Kart</td>
+        <td><img src="88.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>90</td>
+        <td>Motorcycle - Side Car</td>
+        <td><img src="90.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>94</td>
+        <td>Motorcycle - Custom</td>
+        <td><img src="94.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>95</td>
+        <td>Cargo Van</td>
+        <td><img src="95.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>97</td>
+        <td>Off-road Vehicle - Snowmobile</td>
+        <td><img src="97.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>98</td>
+        <td>Motorcycle - Street</td>
+        <td><img src="98.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>100</td>
+        <td>Motorcycle - Enclosed Three Wheeled or Enclosed Autocycle [1 Rear Wheel]</td>
+        <td><img src="100.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>103</td>
+        <td>Motorcycle - Unenclosed Three Wheeled or Open Autocycle [1 Rear Wheel]</td>
+        <td><img src="103.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>104</td>
+        <td>Motorcycle - Moped</td>
+        <td><img src="104.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>105</td>
+        <td>Off-road Vehicle - Multipurpose Off-Highway Utility Vehicle [MOHUV] or Recreational Off-Highway Vehicle [ROV]</td>
+        <td><img src="105.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>107</td>
+        <td>Incomplete - Bus Chassis</td>
+        <td><img src="107.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>108</td>
+        <td>Motorhome</td>
+        <td><img src="108.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>109</td>
+        <td>Motorcycle - Cross Country</td>
+        <td><img src="109.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>110</td>
+        <td>Motorcycle - Underbone</td>
+        <td><img src="110.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>111</td>
+        <td>Step Van / Walk-in Van</td>
+        <td><img src="111.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>112</td>
+        <td>Incomplete - Commercial Chassis</td>
+        <td><img src="112.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>113</td>
+        <td>Off-road Vehicle - Motocross (Off-road short distance, closed track racing)</td>
+        <td><img src="113.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>114</td>
+        <td>Motorcycle - Competition</td>
+        <td><img src="114.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>116</td>
+        <td>Incomplete - Trailer Chassis</td>
+        <td><img src="116.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>117</td>
+        <td>Limousine</td>
+        <td><img src="117.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>119</td>
+        <td>Sport Utility Truck (SUT)</td>
+        <td><img src="119.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>124</td>
+        <td>Off-road Vehicle - Golf Cart</td>
+        <td><img src="124.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>125</td>
+        <td>Motorcycle - Unknown Body Class</td>
+        <td><img src="125.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>126</td>
+        <td>Off-road Vehicle - Farm Equipment</td>
+        <td><img src="126.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>127</td>
+        <td>Off-road Vehicle - Construction Equipment</td>
+        <td><img src="127.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>128</td>
+        <td>Ambulance</td>
+        <td><img src="128.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>129</td>
+        <td>Street Sweeper</td>
+        <td><img src="129.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>130</td>
+        <td>Fire Apparatus</td>
+        <td><img src="130.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>131</td>
+        <td>Motorcycle - Three Wheeled, Unknown Enclosure or Autocycle, Unknown Enclosure</td>
+        <td><img src="131.png" style="width:250px;" /></td>
+      </tr>
+    </table>
+    <br>
+    <h2>Truck</h2>
+    <ul>
+      <li>When <u>Body Class</u> is "Truck", and <u>Cab Type</u> is coded:</li>
+    </ul>
+    <table>
+      <tr>
+        <th style='width: 0.5em'>Id</th>
+        <th>Name</th>
+        <th>Image</th>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>MDHD: Conventional</td>
+        <td><img src="11/4/5.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>MDHD: COE (Cab Over Engine)</td>
+        <td><img src="11/4/6.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>MDHD: CBE (Cab Behind Engine)</td>
+        <td><img src="11/4/7.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>MDHD: CAE (Cab Above Engine)</td>
+        <td><img src="11/4/8.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>MDHD: LCF (Low Cab Forward)</td>
+        <td><img src="11/4/9.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>MDHD: Tilt</td>
+        <td><img src="11/4/10.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>MDHD: Non-Tilt</td>
+        <td><img src="11/4/11.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>MDHD: Cab Beside Engine</td>
+        <td><img src="11/4/12.png" style="width:250px;" /></td>
+      </tr>
+    </table>
+    <br>
+    <h2>Bus</h2>
+    <ul>
+      <li>When <u>Body Class</u> is "Bus", and <u>Bus Type</u> is coded:</li>
+    </ul>
+    <table>
+      <tr>
+        <th style='width: 0.5em'>Id</th>
+        <th>Name</th>
+        <th>Image</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Commuter Coach</td>
+        <td><img src="16/149/1.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Double Deck Coach</td>
+        <td><img src="16/149/2.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Tourist Coach</td>
+        <td><img src="16/149/3.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Urban Bus</td>
+        <td><img src="16/149/4.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Transit Bus</td>
+        <td><img src="16/149/5.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Entertainer Coach</td>
+        <td><img src="16/149/6.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Motorhome</td>
+        <td><img src="16/149/7.png" style="width:250px;" /></td>
+      </tr>
+    </table>
+    <br>
+    <h2>Pickup</h2>
+    <ul>
+	  <li>When <u>Body Class</u> is "Pickup", and <u>Cab Type</u> is coded:</li>
+    </ul>
+    <table>
+      <tr>
+        <th style='width: 0.5em'>Id</th>
+        <th>Name</th>
+        <th>Image</th>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Extra/Super/Quad/Double/King/Extended</td>
+        <td><img src="60/4/2.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Regular</td>
+        <td><img src="60/4/3.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Crew/Super Crew/Crew Max</td>
+        <td><img src="60/4/4.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Mega</td>
+        <td><img src="60/4/13.png" style="width:250px;" /></td>
+      </tr>
+    </table>
+    <br>
+    <h2>Truck-Tractor</h2>
+    <ul>
+	  <li>When <u>Body Class</u> is "TruckTractor", and <u>Cab Type</u> is coded:</li>
+    </ul>
+    <table>
+      <tr>
+        <th style='width: 0.5em'>Id</th>
+        <th>Name</th>
+        <th>Image</th>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>MDHD: Conventional</td>
+        <td><img src="66/4/5.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>MDHD: COE (Cab Over Engine)</td>
+        <td><img src="66/4/6.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>MDHD: CBE (Cab Behind Engine)</td>
+        <td><img src="66/4/7.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>MDHD: CAE (Cab Above Engine)</td>
+        <td><img src="66/4/8.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>MDHD: LCF (Low Cab Forward)</td>
+        <td><img src="66/4/9.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>MDHD: Tilt</td>
+        <td><img src="66/4/10.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>MDHD: Non-Tilt</td>
+        <td><img src="66/4/11.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>MDHD: Cab Beside Engine</td>
+        <td><img src="66/4/12.png" style="width:250px;" /></td>
+      </tr>
+    </table>
+    <br>
+    <h2>Three-Wheeled Motorcycle [1 Rear Wheel]</h2>
+    <ul>
+      <li>When <u>Body Class</u> is "Motorcycle - Unenclosed Three Wheeled or Open Autocycle [1 Rear Wheel]", and <u>Motorcycle Chassis Type</u> is coded:</li>
+    </ul>
+    <table>
+      <tr>
+        <th style='width: 0.5em'>Id</th>
+        <th>Name</th>
+        <th>Image</th>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Autocycle (Open or Closed)</td>
+        <td><img src="103/153/3.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Reverse Trike</td>
+        <td><img src="103/153/4.png" style="width:250px;" /></td>
+      </tr>
+    </table>
+    <br>
+    <h2>Three-Wheeled Motorcycle [2 Rear Wheels]</h2>
+    <ul>
+      <li>When <u>Body Class</u> is "Motorcycle - Three-Wheeled Motorcycle (2 Rear Wheels)", and <u>Motorcycle Chassis Type</u> is coded:</li>
+    </ul>
+    <table>
+      <tr>
+        <th style='width: 0.5em'>Id</th>
+        <th>Name</th>
+        <th>Image</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Trike</td>
+        <td><img src="83/153/1.png" style="width:250px;" /></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Three-Wheeler - Other</td>
+        <td><img src="83/153/2.png" style="width:250px;" /></td>
+      </tr>
+    </table>
+  </body>
+</html>
