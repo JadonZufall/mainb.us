@@ -1,0 +1,29 @@
+-	model: apps.location.Region
+  pk: 1
+  fields:
+    name: "Africa"
+
+- model: apps.location.Region
+  pk: 2
+  fields:
+    name: "Americas"
+
+- model: apps.location.Region
+  pk: 3
+  fields:
+    name: "Asia"
+
+- model: apps.location.Region
+  pk: 4
+  fields:
+    name: "Europe"
+
+- model: apps.location.Region
+  pk: 5
+  fields:
+    name: "Oceania"
+
+- model: apps.location.Region
+  pk: 6
+  fields:
+    name: "Polar"

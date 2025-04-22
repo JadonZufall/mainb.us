@@ -1,0 +1,6 @@
+- model: apps.location.SubRegion
+  pk: 1
+  fields:
+    name: "North America"
+    code: "NA"
+    region: "America"
