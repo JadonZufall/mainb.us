@@ -12,18 +12,18 @@ class VMDashboardView(View):
 	def get(self, request: HttpRequest) -> HttpResponse:
 		if not request.user.is_authenticated:
 			redirect("authentication_signin")
-		cars = models.Car.objects.filter(owner=request.user)
+		vehicles = models.Vehicle.objects.filter(owner=request.user)
 		context = {
-			"cars": [
+			"vehicles": [
 				{
-					"pk": car.pk,
-					"model": car,
-					"owner_name": car.owner.username.capitalize(),
-					"owner_url": resolve_url("authentication_user_profile", car.owner.username),
+					"pk": vehicle.pk,
+					"model": vehicle,
+					"owner_name": vehicle.owner.username.capitalize(),
+					"owner_url": resolve_url("authentication_user_profile", vehicle.owner.username),
 					"url": "",		# TODO: Should be the link to view the car
 					"status": "okay",
 				}
-				for car in cars
+				for vehicle in vehicles
 			]
 		}
 		
