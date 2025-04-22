@@ -31,10 +31,7 @@
 	margin-left: 50px;
 }
 
-.vmdash-card .card-status {
-	float: inline-start;
-	margin: 5px 5px 0px 5px;
-}
+
 
 .card-status span {
 	font-size: 21px;
@@ -57,14 +54,7 @@
 	content: "❗";
 }
 
-.chip-dock {
-	float: inline-end;
-}
 
-.card-foot {
-	z-index: 2;
-	float: bottom;
-}
 
 .edit-btn {
 	color: white;
@@ -76,7 +66,6 @@
 	border: 0;
 	width: 75px;
 	height: 35px;
-	float: inline-end;
 	font-size: 18px;
 	padding: 5px 5px 5px 5px;
 	cursor: pointer;
@@ -92,7 +81,6 @@
 	border: 0;
 	width: 75px;
 	height: 35px;
-	float: inline-end;
 	font-size: 18px;
 	padding: 5px 5px 5px 5px;
 	cursor: pointer;
@@ -108,7 +96,6 @@
 	border: 0;
 	width: 75px;
 	height: 35px;
-	float: inline-end;
 	font-size: 18px;
 	padding: 5px 5px 5px 5px;
 	cursor: pointer;
@@ -119,10 +106,42 @@
 	padding-left: 5px;
 }
 
+.card-labels {
+	display: inline-block;
+}
+
+
+.card-fields {
+	display: inline-block;
+}
+
+.card-content span[editable] span {
+	border-bottom: 2px solid lightgrey;
+}
+
+.card-content span[editable] input {
+	background-color: rgba(0, 0, 0, 0.027);
+}
+
 .card-content input:invalid {
-	border: 2px dashed red;
+	border-bottom: 2px dashed red;
 }
 
 .card-content input:valid {
-	border: 2px solid greenyellow;
+	border-bottom: 2px solid grey;
+}
+
+span[editable] input, span[editable] span, .card-labels label {
+	font-size: 18px;
+	line-height: 20px;
+	height: 26px;
+	font-family: monospace;
+	font-weight: 400;
+	font-style: normal;
+
+}
+
+.card-labels label {
+	line-height: 26px;
+	margin-bottom: 2px;
 }

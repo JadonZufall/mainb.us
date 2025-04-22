@@ -125,6 +125,7 @@ class Vehicle(models.Model):
 		on_delete=models.SET_NULL,
 		related_name="make_of",
 		null=True,
+		blank=True,
 	)
 
 	model = models.ForeignKey(
@@ -132,6 +133,7 @@ class Vehicle(models.Model):
 		on_delete=models.SET_NULL,
 		related_name="model_of",
 		null=True,
+		blank=True,
 	)
 
 	shared_to_edit = models.ManyToManyField(
@@ -151,7 +153,6 @@ class Vehicle(models.Model):
 	vin = models.CharField(
 		verbose_name="VIN",
 		max_length=17,
-		unique=True,
 		help_text="The VIN of the vehicle.",
 		blank=True,
 		default="",
@@ -160,7 +161,6 @@ class Vehicle(models.Model):
 	plate = models.CharField(
 		verbose_name="Plate",
 		max_length=16,
-		unique=True,
 		help_text="The plate of the vehicle.",
 		blank=True,
 		default="",

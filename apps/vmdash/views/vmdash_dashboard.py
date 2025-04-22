@@ -16,12 +16,20 @@ class VMDashboardView(View):
 		context = {
 			"vehicles": [
 				{
+					"instance": vehicle,
 					"pk": vehicle.pk,
-					"model": vehicle,
-					"owner_name": vehicle.owner.username.capitalize(),
-					"owner_url": resolve_url("authentication_user_profile", vehicle.owner.username),
+					"name": vehicle.name.capitalize() if vehicle.name else "<NAME>",
+					"make": vehicle.make.name.capitalize() if vehicle.make else "<MAKE>",
+					"model": vehicle.model.name.capitalize() if vehicle.model else "<MODEL>",
+					"year": vehicle.year,
+					"vin": vehicle.vin if vehicle.vin else "<VIN>",
+					"plate": vehicle.plate if vehicle.plate else "<PLATE>",
+					"mileage": vehicle.mileage if vehicle.mileage is not None else "<MILEAGE>",
+					"owner_username": vehicle.owner.username.capitalize(),
 					"url": "",		# TODO: Should be the link to view the car
 					"status": "okay",
+					"shared_to_edit": vehicle.shared_to_edit.all(),
+					"shared_to_view": vehicle.shared_to_view.all(),
 				}
 				for vehicle in vehicles
 			]

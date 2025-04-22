@@ -1,0 +1,47 @@
+span[editable] {
+	display: inline-block;
+}
+span[editable] input, span[editable] span {
+	display: inline-block;
+
+	width: 200px;
+	height: 32px;
+
+	margin: 0;
+	padding: 0;
+
+	color: black;
+	background: none;
+	background-color: transparent;
+
+	border: 0;
+	border-radius: 0;
+	outline: none;
+	
+	line-height: 30px;
+	font-size: 24px;
+	font-family: monospace;
+	font-weight: 400;
+	font-style: normal;
+	
+	text-align: left;
+	text-align-last: left;
+	vertical-align: top;
+	align-content: center;
+
+	box-sizing: border-box;
+}
+
+span[editable] input {
+	color: #0f0f0f;
+}
+span[editable] span {
+	color: #000000;
+}
+span[editable]:not([toggle]) input, span[editable][toggle] span {
+	display: none;
+}
+
+span[editable]:not([toggle]) span, span[editable][toggle] input {
+	display: inline-block;
+}

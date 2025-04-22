@@ -11,17 +11,88 @@
 
 {% block content %}
 	<h1>Vehicle Management Dashboard</h1>
-	<!--<button>New Car</button>-->
+	{% for vehicle in vehicles %}
+		<div class="vmdash-card" id="vmdash-card-{{ vehicle|index:'pk' }}">
+			<div class="card-head">
+				<h2 class="card-name">{{ vehicle|index:'name' }}</h2>
+				<div class="card-desc">
+					<span>{{ vehicle|index_attr:'instance.year' }}</span>
+					<span>{{ vehicle|index_attr:'instance.make' }}</span>
+					<span>{{ vehicle|index_attr:'instance.model' }}</span>
+					{% comment %}
+					{% include 'components/toggle_input.html' with initial_value=vehicle|index:'year' group=vehicle|index:'pk' %}
+					{% include 'components/toggle_input.html' with initial_value=vehicle|index:'make' group=vehicle|index:'pk' %}
+					{% include 'components/toggle_input.html' with initial_value=vehicle|index:'model' group=vehicle|index:'pk' %}
+					{% endcomment %}
+				</div>
+			</div>
+
+			
+
+			<div class="card-status">
+				<span status={{ vehicle|index:'status' }}></span>
+			</div>
+
+			<div class="card-content">
+				<div class="card-labels">
+					<label>VIN:   </label>
+					<br>
+					<label>Plate: </label>
+					<br>
+					<label>Miles:  </label>
+				</div>
+				<div class="card-fields">
+					{% include 'components/toggle_input.html' with name=vehicle|index:'pk'|concat:'-vin'|prefix:'card-' initial_value=vehicle|index:'vin' group=vehicle|index:'pk' %}
+					<br>
+					{% include 'components/toggle_input.html' with name=vehicle|index:'pk'|concat:'-plate'|prefix:'card-' initial_value=vehicle|index:'plate' group=vehicle|index:'pk' %}
+					<br>
+					{% include 'components/toggle_input.html' with name=vehicle|index:'pk'|concat:'-miles'|prefix:'card-' initial_value=vehicle|index:'mileage' group=vehicle|index:'pk'%}
+				</div>
+			</div>
+
+			<div class="card-foot">
+				<button class="delete-btn" onclick="vmdash_card_btn_delete({{ vehicle|index:'pk' }})">Delete</button>
+				{% include 'components/toggle_input_group_button.html' with id=vehicle|index:'pk' class='edit-btn' group=vehicle|index:'pk' text='Edit' %}
+				<button id="button-done-{{ vehicle|index:'pk' }}" class="done-btn" onclick="vmdash_card_btn_done({{ vehicle|index:'pk' }})" hidden>Done</button>
+			</div>
+
+			<div class="chip-dock">
+				{% comment %}
+				<div class="chip" status="online">
+					<div class="chip-bg">
+						<div class="chip-fg"></div>
+						<img src="{% static 'img/avatar_placeholder.jpg' %}" alt="" width="96" height="96">
+					</div>
+					<a href="{{ vehicle|index:'owner_url' }}">{{ vehicle|index:'owner_name' }}</a>
+				</div>
+				{% endcomment %}
+				{% include 'components/user_chip.html' with username=vehicle|index:'owner_username' %}
+				{% for user in vehicle|index:'shared_to_edit' %}
+					{% include 'components/user_chip.html' with username=user.username %}
+				{% endfor %}
+				{% for user in vehicle|index:'shared_to_view' %}
+					{% include 'components/user_chip.html' with username=user.username %}
+				{% endfor %}
+			</div>
+		</div>
+
+	{% endfor %}
+
+
+	{% comment %}
+	{% for vehicle in vehicles %}
+	<div class="vmdash-card" id="">
 
 	{% for vehicle in vehicles %}
+	
 	<div class="vmdash-card" id="{{ vehicle|index:'pk' }}">
 		
 		<div class="card-head">
-			<h2 class="card-name">{{ vehicle|index_attr:'model.name' }}</h2>
+			<h2 class="card-name">{{ vehicle|index_attr:'instance.name' }}</h2>
 			<div class="card-desc">
-				<span>{{ vehicle|index_attr:'model.year' }}</span>
-				<span>{{ vehicle|index_attr:'model.make' }}</span>
-				<span>{{ vehicle|index_attr:'model.model' }}</span>
+				<span>{{ vehicle|index_attr:'instance.year' }}</span>
+				<span>{{ vehicle|index_attr:'instance.make' }}</span>
+				<span>{{ vehicle|index_attr:'instance.model' }}</span>
 			</div>
 		</div>
 
@@ -43,16 +114,16 @@
 		
 		<div class="card-content">
 			<label>VIN:   </label>
-			<span id="span-vin-{{ vehicle|index:'pk' }}">{{ vehicle|index_attr:'model.vin' }}</span>
+			<span id="span-vin-{{ vehicle|index:'pk' }}">{{ vehicle|index_attr:'instance.vin' }}</span>
 			<input id="input-vin-{{ vehicle|index:'pk' }}" hidden></input>
 			<br>
 			<label>Plate: </label>
-			<span id="span-plate-{{ vehicle|index:'pk' }}">{{ vehicle|index_attr:'model.plate' }}</span>
+			<span id="span-plate-{{ vehicle|index:'pk' }}">{{ vehicle|index_attr:'instance.plate' }}</span>
 			<input id="input-plate-{{ vehicle|index:'pk' }}" hidden></input>
 			<br>
 			<label>Miles:  </label>
-			<span id="span-miles-{{ vehicle|index:'pk' }}">{{ vehicle|index_attr:'model.miles' }}</span>
-			<input id="input-miles-{{ vehicle|index:'pk' }}" type="number" min="0" max="" pattern="([0-9]|&#8734;)+" value="{{ vehicle|index_attr:'model.miles' }}" required hidden></input>
+			<span id="span-miles-{{ vehicle|index:'pk' }}">{{ vehicle|index_attr:'instance.mileage' }}</span>
+			<input id="input-miles-{{ vehicle|index:'pk' }}" type="number" min="0" max="" pattern="([0-9]|&#8734;)+" value="{{ vehicle|index_attr:'instance.mileage' }}" required hidden></input>
 			<span> mi</span>
 		</div>
 
@@ -66,4 +137,6 @@
 		
 	</div>
 	{% endfor %}
+	{% endcomment %}
+	
 {% endblock %}

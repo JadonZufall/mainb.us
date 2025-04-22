@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+
+{% endblock %}
+
+
+{% block content %}
+{% include 'components/toggle_input.html' with initial_value="1000" group="input-group-a" %}
+{% include 'components/toggle_input_group_button.html' with text="toggle" group="input-group-a"  %}
+{% endblock %}

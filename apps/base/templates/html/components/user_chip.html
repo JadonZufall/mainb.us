@@ -1,0 +1,9 @@
+{% load static %}
+{% load base_extras %}
+<div class="chip" status={{ status|default:"offline" }}>
+	<div class="chip-bg">
+		<div class="chip-fg"></div>
+		<img src="{% static 'img/avatar_placeholder.jpg' %}" alt="" width="96" height="96">
+	</div>
+	<a href="{% resolve_profile_url username %}">{{ username }}</a>
+</div>

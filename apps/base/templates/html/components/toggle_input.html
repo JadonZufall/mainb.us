@@ -1,0 +1,60 @@
+<span 
+	{% if id is not None %}
+		id="{{ id }}"
+	{% endif %}
+	{% if class is not None %}
+		class="{{ class }}"
+	{% endif %}
+	{% if group is not None %}
+		group="{{ group }}"
+	{% endif %}
+	{% if initial_value is not None %}
+		initial-value="{{ initial_value }}"
+	{% endif %}
+	{% if style is not None %}
+		style="{{ style }}"
+	{% endif %}
+	editable
+><span
+			>{{ initial_value }}
+</span><input
+		{% if type is not None %}
+			type="{{ type }}"
+		{% else %}
+			type="text"
+		{% endif %} 
+		value="{{ initial_value }}"
+		{% if name is not None %}
+			name="{{ name }}"
+		{% endif %}
+		{% if required %}
+			required
+		{% endif %}
+		{% if pattern is not None %}
+			pattern="{{ pattern }}"
+		{% endif %}
+		{% if min is not None %}
+			min="{{ min }}"
+		{% endif %}
+		{% if max is not None %}
+			max="{{ max }}"
+		{% endif %}
+		{% if step is not None %}
+			step="{{ step }}"
+		{% endif %}
+		{% if placeholder is not None %}
+			placeholder="{{ placeholder }}"
+		{% endif %}
+		{% if title is not None %}
+			title="{{ title }}"
+		{% endif %}
+		{% if disabled %}
+			disabled
+		{% endif %}
+		{% if hidden %}
+			hidden
+		{% endif %}
+		{% if readonly %}
+			readonly
+		{% endif %}
+/></span>

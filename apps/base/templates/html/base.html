@@ -3,17 +3,22 @@
 <html lang="eng">
 	<head>
 		<link rel="stylesheet" href="{% static 'css/base.css' %}">
+		<link rel="stylesheet" href="{% static 'css/components/toggle_input.css' %}">
+
 		<title>{% block title %}Mainbus{% endblock %}</title>
 		{% block header %}
 
 		{% endblock %}
-		<script src="{% static 'js/lib_csrf_token.js' %}"></script>
-		<script src="{% static 'js/lib_local_user.js' %}"></script>
+		<script src="{% static 'js/lib/lib_components.js' %}"></script>
+		<script src="{% static 'js/lib/lib_csrf_token.js' %}"></script>
+		<script src="{% static 'js/lib/lib_local_user.js' %}"></script>
+		<script src="{% static 'js/lib/lib_cookies.js' %}"></script>
 	</head>
 
 	<body>
 		{% block content %}
 
 		{% endblock content %}
+	<script src="{% static 'js/components/toggle_input.js' %}"></script>
 	</body>
 </html>

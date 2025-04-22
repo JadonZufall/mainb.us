@@ -5,11 +5,11 @@ from django.shortcuts import render
 
 
 
-class IndexView(View):
+class TestView(View):
     async def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
         response: HttpResponse = render(
             request,
-            "index.html",
+            "test.html",
         )
         return response
     
