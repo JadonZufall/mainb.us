@@ -1,4 +1,5 @@
 from django import template
+from django.shortcuts import resolve_url
 
 register = template.Library()
 
@@ -27,8 +28,8 @@ def prefix(value, arg: str):
 
 @register.simple_tag
 def resolve_profile_picture_url(username: str):
-	return "{% static 'img/avatar_placeholder.jpg' %}"
+	raise NotImplementedError("TODO: resolve_profile_picture_url")
 
 @register.simple_tag
 def resolve_profile_url(username: str):
-	return f"/u/{username}" if username else "/u/"
+	return resolve_url("authentication_user_profile", username)
