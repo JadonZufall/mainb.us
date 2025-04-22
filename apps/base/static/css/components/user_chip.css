@@ -6,13 +6,13 @@
 	line-height: var(--chipsize);
 
 	height: var(--chipsize);
-	width: calc(var(--chipsize) * 3);
+	width: calc(var(--chipsize) * var(--chipratio));
 
 	cursor: pointer;
 }
 
 .user-chip[state="expanded"] {
-	width: calc(var(--chipsize) * 3);
+	width: calc(var(--chipsize) * var(--chipratio));
 	transition: width 0.3s ease-in-out;
 }
 
@@ -74,7 +74,7 @@
 .user-chip .user-chip-content {
 	display: inline-block;
 	height: var(--chipsize);
-	max-width: calc(var(--chipsize) * 2);
+	max-width: calc(var(--chipsize) * var(--chipratio) - var(--chipsize));
 
 	position: relative;
 	top: 0;
@@ -113,7 +113,7 @@
 	line-height: var(--chipsize);
 
 
-	max-width: calc(var(--chipsize) * 2 - var(--chipsize) / 2);
+	max-width: calc(var(--chipsize) * var(--chipratio) - var(--chipsize) - var(--chipsize) / 2);
 	max-height: fit-content;
 
 

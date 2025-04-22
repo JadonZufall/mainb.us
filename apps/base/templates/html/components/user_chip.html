@@ -1,7 +1,6 @@
 {% load static %}
 {% load base_extras %}
-
-<div class="user-chip" style="--chipsize: 50px; --ringsize: 2px;" status={{ status|default:"offline" }}>
+<div class="user-chip" style="--chipsize: {{ chipsize|default:50 }}px; --ringsize: {{ ringsize|default:2 }}px; --chipratio: {{ chipratio|default:3 }};" status={{ status|default:"offline" }} state={{ state|default:"expanded" }}>
 	<div class="user-chip-bg">
 		<img src="{% static 'img/avatar_placeholder.jpg' %}" alt="" width="0" height="0">
 		<div class="user-chip-tooltip-aligner">
@@ -11,5 +10,4 @@
 	--><div class="user-chip-content">
 		<a>{{ username }}</a>
 	</div>
-
 </div>
