@@ -1,51 +1,173 @@
-.chip {
-    display: inline-block;
-    padding: 0 25px;
-    height: 50px;
-    font-size: 16px;
-    line-height: 50px;
-    border-radius: 25px;
-    background-color: #f1f1f1;
+.user-chip {
+	display: inline-block;
+	background-color: #f1f1f1;
+	border-radius: calc(var(--chipsize) / 2);
+
+	line-height: var(--chipsize);
+
+	height: var(--chipsize);
+	width: calc(var(--chipsize) * var(--chipratio));
+
+	cursor: pointer;
 }
 
-.chip a {
-    text-decoration: none;
-    color: black;
+.user-chip[state="expanded"] {
+	width: calc(var(--chipsize) * var(--chipratio));
+	transition: width 0.3s ease-in-out;
 }
 
-.chip .chip-bg {
-    float: left;
-    height: 50px;
-    width: 50px;
-    margin: 0 10px 0 -25px;
-    background-image: linear-gradient(to right, green, greenyellow);
-    border-radius: 50%;
-
-    box-shadow: 2px 0px 3px darkgrey;
+.user-chip[state="minimal"] {
+	width: var(--chipsize);
+	transition: width 0.3s ease-in-out;
 }
 
-.chip .chip-bg .chip-fg {
-    position: absolute;
-    z-index: 1;
-    width: 46px;
-    height: 46px;
-    margin: 2px 2px 2px 2px;
-    border-radius: 50%;
-    background-color: #f1f1f1;
+.user-chip .user-chip-bg {
+	display: inline-block;
+	border-radius: 50%;
+	width: var(--chipsize); 
+	height: var(--chipsize);
+
+	background: linear-gradient(to right, green, greenyellow);
+	box-shadow: 2px 0px 3px darkgrey;
+	transition: box-shadow 0.3s ease-in-out;
 }
 
-.chip .chip-bg img {
-    position: absolute;
-    z-index: 2;
-    width: 46px;
-    height: 46px;
-    margin: 2px 2px 2px 2px;
-    border-radius: 50%;
+.user-chip[state="minimal"] .user-chip-bg {
+	box-shadow: 0px 0px 0px darkgrey;
+	transition: box-shadow 0.3s ease-in-out;
 }
 
+.user-chip .user-chip-bg:hover {
+	box-shadow: 0px 0px 3px var(--accent-color);
+	transition: box-shadow 0.3s ease-in-out;
+}
+
+.user-chip[status="online"] .user-chip-bg {
+	--accent-color: greenyellow;
+	background: linear-gradient(to right, greenyellow, greenyellow);
+}
+
+.user-chip[status="offline"] .user-chip-bg {
+	--accent-color: lightgrey;
+	background: linear-gradient(to right, lightgrey, lightgrey);
+}
+
+.user-chip[status="away"] .user-chip-bg {
+	--accent-color: yellow;
+	background: linear-gradient(to right, yellow, lightgoldenrodyellow);
+}
+
+.user-chip[status="donotdisturb"] .user-chip-bg {
+	--accent-color: lightcoral;
+	background: linear-gradient(to right, lightcoral, rgb(58, 0, 0));
+}
+
+.user-chip .user-chip-bg img {
+	display: inline-block;
+	border-radius: 50%;
+	padding: var(--ringsize);
+	width: var(--chipsize);
+	height: var(---chipsize);
+	box-sizing: border-box;
+}
+
+.user-chip .user-chip-content {
+	display: inline-block;
+	height: var(--chipsize);
+	max-width: calc(var(--chipsize) * var(--chipratio) - var(--chipsize));
+
+	position: relative;
+	top: 0;
+	left: 10px;
+
+	overflow: hidden;
+	white-space: nowrap;
+
+	transition-delay: 0.3s;
+	transition: all 0.3s ease-in-out;
+	
+	text-align: center;
+}
+
+.user-chip[state="expanded"] .user-chip-content {
+	transition: all 0.3s ease-in-out;
+}
+
+.user-chip[state="minimal"] .user-chip-content {
+	width: 0;
+	height: 0;
+	transition: all 0.3s ease-in-out;
+	transition-delay: 0.3s;
+}
+
+.user-chip .user-chip-content a {
+	display: inline-block;
+	color: black;
+	font-family: monospace, "Courier New", Courier, monospace;
+	text-decoration: none;
+
+	overflow: ellipsis;
+	white-space: nowrap;
+
+	font-size: 16px;
+	line-height: var(--chipsize);
 
 
-.chip[status="online"] img {
-    border-width: 2px;
-    border-color: greenyellow;
+	max-width: calc(var(--chipsize) * var(--chipratio) - var(--chipsize) - var(--chipsize) / 2);
+	max-height: fit-content;
+
+
+}
+
+.user-chip[state="expanded"] .user-chip-content a {
+	font-size: 16px;
+	transition: all 0s ease-in-out;
+	transition-delay: 0.3s;
+}
+
+.user-chip[state="minimal"] .user-chip-content a {
+	font-size: 0px;
+}
+
+.user-chip .user-chip-bg .user-chip-tooltip-aligner {
+	display: inline-flex;
+	position: absolute;
+	
+	justify-content:center;
+	align-items: center;
+
+	width: 0;
+	height: 0;
+	font-size: 12px;
+
+	
+	margin-left: calc(-1 * var(--chipsize) / 2);
+	margin-top: calc(var(--chipsize));
+	
+}
+
+.user-chip .user-chip-bg .user-chip-tooltip-aligner .user-chip-tooltip {
+	visibility: hidden;
+
+	display: inline-block;
+
+	line-height: 14px;
+	font-size: 12px;
+	font-family: monospace, "Courier New", Courier, monospace;
+
+	background-color: black;
+	color: #ffffff;
+	text-align: center;
+	border-radius: 6px;
+
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+
+	z-index: 1;
+}
+
+.user-chip[state="minimal"] .user-chip-bg:hover .user-chip-tooltip-aligner .user-chip-tooltip {
+	visibility: visible;
 }

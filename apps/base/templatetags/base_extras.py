@@ -33,3 +33,17 @@ def resolve_profile_picture_url(username: str):
 @register.simple_tag
 def resolve_profile_url(username: str):
 	return resolve_url("authentication_user_profile", username)
+
+@register.simple_tag
+def length(value):
+	if hasattr(value, "__len__"):
+		return len(value)
+	else:
+		return 0
+
+@register.filter
+def length_add(value, arg: int):
+	if hasattr(value, "__len__"):
+		return len(value) + arg
+	else:
+		return arg

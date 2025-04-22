@@ -1,9 +1,13 @@
 {% load static %}
 {% load base_extras %}
-<div class="chip" status={{ status|default:"offline" }}>
-	<div class="chip-bg">
-		<div class="chip-fg"></div>
-		<img src="{% static 'img/avatar_placeholder.jpg' %}" alt="" width="96" height="96">
+<div class="user-chip" style="--chipsize: {{ chipsize|default:50 }}px; --ringsize: {{ ringsize|default:2 }}px; --chipratio: {{ chipratio|default:3 }};" status={{ status|default:"offline" }} state={{ state|default:"expanded" }}>
+	<div class="user-chip-bg">
+		<img src="{% static 'img/avatar_placeholder.jpg' %}" alt="" width="0" height="0">
+		<div class="user-chip-tooltip-aligner">
+			<span class="user-chip-tooltip">{{ username }}</span>
+		</div>
+	</div><!--
+	--><div class="user-chip-content">
+		<a>{{ username }}</a>
 	</div>
-	<a href="{% resolve_profile_url username %}">{{ username }}</a>
 </div>
