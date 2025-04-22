@@ -79,6 +79,7 @@ INSTALLED_APPS: list = [
     'mainbus.apps.FilestoreConfig',
     'mainbus.apps.SupportConfig',
     'mainbus.apps.VMDashConfig',
+    'mainbus.apps.LocationConfig',
 ]
 
 # Middle wear
