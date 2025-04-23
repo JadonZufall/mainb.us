@@ -156,8 +156,6 @@ if DEBUG:
         },
     }
 else:
-    #todo> Setup redis as the CHANNEL backend.
-    print("ChannelLayers not properly configured, failed to setup websocket connections.  Must deploy redis for production safe enviornment.")
     CHANNEL_LAYERS: dict = {
         "default": {
             "BACKEND": "channels_redis.core.RedisChannelLayer",
