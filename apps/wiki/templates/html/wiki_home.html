@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'css/wiki.css' %}">
+{% endblock %}
+
+
+{% block content %}
+	{% include 'components/wiki_sidebar.html' %}
+	<div id="wiki-content">
+		<h1>Pages</h1>
+		<ul>
+		{% for page in page_urls %}
+			<li><a href="{{ page }}">{{ page }}</a><br></li>
+		{% endfor %}
+		</ul>
+		{% if not page_urls %}
+			<p>No pages available.</p>
+		{% endif %}
+	</div>
+{% endblock %}
+
+{% block components %}
+	<script src="{% static 'js/components/wiki_sidebar.js' %}"></script>
+{% endblock %}

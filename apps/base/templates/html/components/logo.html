@@ -1,2 +1,2 @@
 {% load static %}
-<object style="width: {{ width }};" type="image/svg+xml" data="{% static 'svg/logo/logo-default-monochrome.svg' %}" class="logo"></object>
+<object {% if width %}style="width: {{ width }};"{% endif %} type="image/svg+xml" data="{% static 'svg/logo/logo-default-monochrome.svg' %}" class="logo"></object>

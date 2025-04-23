@@ -1,0 +1,3 @@
+{% load static %}
+<object style="width: {{ width }};" type="image/svg+xml" data="{% static 'svg/logo/logo-small-default-monochrome-cropped.svg' %}" class="logo"></object>
+{{ object_content|default:'' }}
