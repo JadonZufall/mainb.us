@@ -29,7 +29,7 @@ class Permission(models.Model):
 
 
 class UserManager(BaseUserManager):
-	def validate_username(self, username: str) -> tuple[bool, str]:
+	def validate_username(self, username: str) -> tuple:
 		# Username must be 5 characters or longer.
 		if len(username) < 5:
 			return False, "Password must be 5 character or longer."
