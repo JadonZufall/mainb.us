@@ -7,3 +7,4 @@ __pycache__/
 /media/
 venv/
 *.log
+dump.rdb
