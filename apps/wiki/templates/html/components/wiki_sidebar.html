@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/components/wiki_sidebar.css' %}">
+
+<div id="wiki-sidebar" state="open">
+	<div id="wiki-sidebar-controls">
+		<button id="wiki-sidebar-close" onclick="WikiSidebar.close();">X</buton>
+		<button id="wiki-sidebar-open" onclick="WikiSidebar.open();">≡</button>
+	</div>
+	<div id="wiki-sidebar-header">
+		<button id="wiki-sidebar-logo" onclick="redirect_to('{% url 'index' %}');">{% include 'html/components/logo.html' %}</button>
+	</div>
+
+	<div id="wiki-sidebar-content">
+		<h1>Wiki</h1>
+		<ul>
+			<li><a href="{% url 'wiki' %}">Home</a></li>
+			<li><a href="{{ new_url | default:'' }}">New</a></li>
+			<li><a href="{{ edit_url | default:'' }}">Edit</a></li>
+			<li><a href="{{ delete_url | default:'' }}">Delete</a></li>
+		</ul>
+	</div>
+</div>

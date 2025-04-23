@@ -1,0 +1,134 @@
+:root {
+	--wiki-sidebar-width: 3in;
+}
+
+#wiki-sidebar {
+	
+	position: fixed;
+	height: 100%;
+	width: var(--wiki-sidebar-width);
+	z-index: 1;
+	top: 0;
+	left: 0;
+	color: white;
+	background-color: #1d1c1c;
+	overflow-x: hidden;
+	
+	box-sizing: border-box;
+}
+
+#wiki-sidebar[state="open"] + #wiki-content {
+	margin-left: var(--wiki-sidebar-width);
+	transition: margin-left 0.5s ease-in-out;
+}
+
+#wiki-sidebar[state="closed"] + #wiki-content {
+	margin-left: 0;
+	transition: margin-left 0.5s ease-in-out;
+}
+
+#wiki-sidebar[state="closed"] {
+	width: 0;
+	transition: width 0.5s ease-in-out;
+}
+
+#wiki-sidebar[state="open"] {
+	width: var(--wiki-sidebar-width);
+	transition: width 0.5s ease-in-out;
+}
+
+
+
+#wiki-sidebar #wiki-sidebar-header {
+	padding-top: 0.25in;
+	padding-left: 0.1in;
+	padding-right: 0.2in;
+	box-sizing: border-box;
+}
+
+#wiki-sidebar #wiki-sidebar-content {
+	padding-top: 0.25in;
+	padding-left: 0.1in;
+	padding-right: 0.2in;
+	box-sizing: border-box;
+}
+
+
+
+#wiki-sidebar #wiki-sidebar-controls {
+	--wiki-sidebar-button-size: 22px;
+	display: block;
+	width: calc(var(--wiki-sidebar-width));
+	height: 50px;
+	position: fixed;
+	
+}
+
+#wiki-sidebar[state="open"] #wiki-sidebar-controls {
+	top: 0;
+	left: 0;
+}
+
+#wiki-sidebar[state="closed"] #wiki-sidebar-controls {
+	top: 0;
+	left: calc(-1 * var(--wiki-sidebar-width) + var(--wiki-sidebar-button-size));
+}
+
+#wiki-sidebar #wiki-sidebar-open, #wiki-sidebar #wiki-sidebar-close {
+	
+	border-radius: 0;
+	border: none;
+	width: var(--wiki-sidebar-button-size);
+	height: var(--wiki-sidebar-button-size);
+}
+
+#wiki-sidebar #wiki-sidebar-open {
+	background-color: #1d1c1c;
+	color: white;
+	float: right;
+}
+
+#wiki-sidebar #wiki-sidebar-close {
+	background-color: white;
+	color: #1d1c1c;
+	float: left;
+}
+
+#wiki-sidebar[state="open"] #wiki-sidebar-open {
+	visibility: hidden;
+}
+
+#wiki-sidebar[state="closed"] #wiki-sidebar-open {
+	visibility: visible;
+}
+
+#wiki-sidebar[state="open"] #wiki-sidebar-close {
+	visibility: visible;
+}
+
+#wiki-sidebar[state="closed"] #wiki-sidebar-close {
+	visibility: hidden;
+}
+
+#wiki-sidebar #wiki-sidebar-logo {
+	width: 100%;
+	min-height: 50px;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	cursor: pointer;
+}
+
+#wiki-sidebar #wiki-sidebar-logo object {
+	pointer-events: none;
+}
+
+#wiki-sidebar #wiki-sidebar-logo .logo {
+	filter: brightness(10000%);
+}
+
+#wiki-sidebar a {
+	color: lightblue;
+	text-decoration: none;
+}
+

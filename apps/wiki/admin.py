@@ -1,3 +1,7 @@
 from django.contrib import admin
+from apps.wiki.models import WikiArticle
 
-# Register your models here.
+
+@admin.register(WikiArticle)
+class WikiPageAdmin(admin.ModelAdmin):
+	pass

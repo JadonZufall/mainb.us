@@ -1,8 +1,30 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %} Home {% endblock %}
 
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
 
 {% block content %}
-    <h1>Mainbus</h1>
+    {% include 'html/components/logo.html' with width='500px' %}
+    <h1>Welcome to the Mainbus!</h1>
+    <p>
+        This is the main page of the Mainbus application. You can navigate to different sections using the menu.
+    </p>
+
+    <section style="margin-left: 0.5in;">
+        <h2>Applications</h2>
+        <ul>
+            <li><a href="{% url 'vmdash_dashboard' %}">VMDash - Vehicle management dashboard.</a></li>
+            <li><a href="{% url 'wiki' %}">Wiki - A wiki for the Mainbus.</a></li>
+            <li><a href="{% url 'poker' %}">Poker - Poker game.</a></li>
+            <li><a href="{% url 'factory' %}">Factory - A factory incremental game.</a></li>
+            <li><a href="{% url 'test' %}">Test - testing area for new features I am working on.</a></li>
+        </ul>
+    </section>
+
+
 {% endblock %}
