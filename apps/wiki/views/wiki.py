@@ -14,11 +14,11 @@ class WikiView(View):
 		try:
 			last_parent = None
 			for i, v in enumerate(list(kwargs.values())):
-				last_parent = models.WikiArticle.objects.filter(title=v, parent=last_parent).get()
+				last_parent = models.WikiArticle.objects.filter(grub=v, parent=last_parent).get()
 		except models.WikiArticle.DoesNotExist:
-			return HttpResponse("404 - page not found", code=404)
+			return HttpResponse("404 - page not found")
 		except models.WikiArticle.MultipleObjectsReturned:
-			return HttpResponse("500 - duplicate entries", code=500)
+			return HttpResponse("500 - duplicate entries")
 
 		article = last_parent	
 		

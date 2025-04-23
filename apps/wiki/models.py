@@ -22,6 +22,14 @@ class WikiArticle(models.Model):
 		unique=False,
 		help_text="Path to the article, e.g. /wiki/what-is-django/"
 	)
+	grub = models.CharField(
+		# By default should be equal to the title, but lowercase and cleaned up.
+		verbose_name="Grub",
+		max_length=255,
+		unique=True,
+		help_text="Grub is a unique identifier for the article, used in the URL.",
+	)
+
 	tags = models.ManyToManyField(
 		WikiTag,
 		verbose_name="Tags",
@@ -71,7 +79,7 @@ class WikiArticle(models.Model):
 
 	def get_path_list(self):
 		path = self.parent.get_path_list() if self.parent else []
-		path.append(self.title)
+		path.append(self.grub)
 		return path
 
 	def get_absolute_url(self):
