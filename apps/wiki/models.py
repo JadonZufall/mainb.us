@@ -11,8 +11,8 @@ class WikiTag(models.Model):
 		help_text="Name of the tag.",
 	)
 
-	def __str__(self):
-		return self.name
+	def __str__(self) -> str: return self.name
+	def __repr__(self) -> str: return self.__str__()
 
 
 class WikiArticle(models.Model):
@@ -73,8 +73,8 @@ class WikiArticle(models.Model):
 		help_text="Date and time when the article was last updated.",
 	)
 
-	def __str__(self):
-		return self.title
+	def __str__(self) -> str: return self.title
+	def __repr__(self) -> str: return self.__str__()
 	
 
 	def get_path_list(self):
