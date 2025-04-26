@@ -5,6 +5,7 @@ secret_key.txt
 __pycache__/
 /static/
 /media/
+/secrets/
 venv/
 *.log
 dump.rdb
