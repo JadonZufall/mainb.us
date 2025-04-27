@@ -1,6 +1,12 @@
 body {
 	margin-top: 0.5in;
 	margin-bottom: 0.5in;
-	margin-left: 5in;
-	margin-right: 5in;
+	margin-left: 15%;
+	margin-right: 15%;
+	
 }
+
+#content {
+	display: flex;
+}
+
