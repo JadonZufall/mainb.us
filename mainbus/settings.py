@@ -73,13 +73,13 @@ INSTALLED_APPS: list = [
     'mainbus.apps.ApiConfig',
     'mainbus.apps.AuthenticationConfig',
     'mainbus.apps.BaseConfig',
-    'mainbus.apps.PokerConfig',
-    'mainbus.apps.WikiConfig',
     'mainbus.apps.FactoryConfig',
     'mainbus.apps.FilestoreConfig',
+    'mainbus.apps.LocationConfig',
+    'mainbus.apps.PokerConfig',
     'mainbus.apps.SupportConfig',
     'mainbus.apps.VMDashConfig',
-    'mainbus.apps.LocationConfig',
+    'mainbus.apps.WikiConfig',
 ]
 
 # Middle wear
