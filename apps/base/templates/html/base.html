@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="eng">
+{% csrf_token %}
+<html lang="eng" ng-app="">
 	<head>
 		<link rel="stylesheet" href="{% static 'css/base.css' %}">
 		<link rel="stylesheet" href="{% static 'css/components/user_chip.css' %}">
@@ -9,6 +10,8 @@
 		{% block header %}
 
 		{% endblock %}
+
+		<!-- Load custom javascript. -->
 		<script src="{% static 'js/lib/lib_components.js' %}"></script>
 		<script src="{% static 'js/lib/lib_csrf_token.js' %}"></script>
 		<script src="{% static 'js/lib/lib_local_user.js' %}"></script>
@@ -20,9 +23,9 @@
 		{% block content %}
 
 		{% endblock content %}
+		
+		
 		<script src="{% static 'js/components/toggle_input.js' %}"></script>
-		{% block components %}
-
-		{% endblock %}
+		{% block components %}{% endblock %}
 	</body>
 </html>
