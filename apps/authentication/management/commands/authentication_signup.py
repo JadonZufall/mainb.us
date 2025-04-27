@@ -3,7 +3,7 @@ from django.core.management.base import CommandError
 
 
 
-class AuthenticationSignupCommand(BaseCommand):
+class Command(BaseCommand):
 	help = "Create a new user account."
 
 	def add_arguments(self, parser):

@@ -3,7 +3,7 @@ from django.core.management.base import CommandError
 
 
 
-class AuthenticationLockCommand(BaseCommand):
+class Command(BaseCommand):
 	help = "Lock or unlock an account so that it cannot be logged into."
 
 	def add_arguments(self, parser):
