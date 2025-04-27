@@ -12,6 +12,11 @@
     <div class="content">
 
         {% include 'html/components/logo.html' with width='500px' %}
+        <section>
+            <a href="{% url 'index' %}">Signin</a>
+            |
+            <a href="{% url 'index' %}">Signup</a>
+        </section>
         <h1>Welcome to the Mainbus!</h1>
         <p>
             This is the main page of the Mainbus application. You can navigate to different sections using the menu.
