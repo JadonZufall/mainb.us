@@ -1,0 +1,161 @@
+.card {
+	--flip-card-transition-duration: 0.5s;
+	display: inline-block;
+	background-color: whitesmoke;
+	
+	width: 2.00in;
+	height: 3.25in;
+	padding: 0.05in;
+	border-radius: 0.25in;
+	border: 0.25in solid black;
+	border-width: 0.05in;
+}
+
+.card[side="front"] {
+	transform: rotate3d(0, 0, 0, 0deg);
+	transition: transform var(--flip-card-transition-duration) linear;
+}
+
+.card[side="back"] {
+	transform: rotate3d(0, 1, 0, 180deg);
+	transition: transform var(--flip-card-transition-duration) linear;
+}
+
+.card .card__face, .card .card__back {
+	position: relative;
+}
+
+.card .card__back {
+	top: -100%;
+}
+
+.card .card__face {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	border-radius: 0.15in;
+}
+
+.card .card__face {
+	opacity: 0;
+	transition: opacity 0 linear;
+	transition-delay: calc(var(--flip-card-transition-duration) / 2);
+}
+
+.card[side="front"] .card__face {
+	opacity: 1;
+	transition: opacity 0 linear;
+	transition-delay: calc(var(--flip-card-transition-duration) / 2);
+}
+
+.card .card__back {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	border-radius: 0.15in;
+	background-color: #000000;
+}
+
+.card .card__back {
+	opacity: 0;
+	transition: opacity 0 linear;
+	transition-delay: calc(var(--flip-card-transition-duration) / 2);
+}
+
+.card[side="back"] .card__back {
+	opacity: 1;
+	transition: opacity 0 linear;
+	transition-delay: calc(var(--flip-card-transition-duration) / 2);
+}
+
+.card .card__face .card__content {
+	width: 100%;
+	height: 100%;
+}
+
+.card .card__face .card__value {
+	color: black;
+	display: flex;
+	font-size: 2em;
+	font-weight: bold;
+	width: 100%;
+}
+
+.card .card__face .card__value[side="left"] {
+	justify-content: left;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding-top: 0.1in;
+}
+
+.card .card__face .card__value[side="right"] {
+	justify-content: right;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding-bottom: 0.1in;
+}
+
+.card .card__face .card__value .value__inner {
+	display: flex;
+	align-items: center;
+	margin-right: 0.1in;
+	margin-left: 0.1in;
+}
+
+
+
+.card .card__face .card__value .value__inner .rank, .card .card__face .card__value .value__inner .suit {
+	display: inline-block;
+	
+}
+
+.card .card__face .card__value .value__inner .suit {
+	font-size: 0.7em;
+	font-weight: bold;
+}
+
+.card[suit="hearts"] .card__face .card__value .value__inner .rank {
+	color: red;
+}
+.card[suit="hearts"] .card__face .card__value .value__inner .suit {
+	color: red;
+}
+
+.card[suit="diamonds"] .card__face .card__value .value__inner .rank {
+	color: red;
+}
+.card[suit="diamonds"] .card__face .card__value .value__inner .suit {
+	color: red;
+}
+
+.card[suit="clubs"] .card__face .card__value .value__inner .rank {
+	color: black;
+}
+.card[suit="clubs"] .card__face .card__value .value__inner .suit {
+	color: black;
+}
+
+.card[suit="spades"] .card__face .card__value .value__inner .rank {
+	color: black;
+}
+.card[suit="spades"] .card__face .card__value .value__inner .suit {
+	color: black;
+}
+
+
+
+.game__deck {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: #3c3c3c;
+}
