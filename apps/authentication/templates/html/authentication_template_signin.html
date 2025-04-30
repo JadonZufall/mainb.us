@@ -1,11 +1,12 @@
-{% load static %}
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Mainbus | Signin{% endblock %}
 {% block content %}
-	<form>
-		<input name="username"/>
-		<input name="password"/>
-		<input type="submit"/>
-	</form>
-	<a>Recover your password</a>
+	<div style="display: flex; justify-content: center; align-items: center;">
+		<form method="post" action="{% url 'authentication_signin' %}">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit">Signin</button>
+		</form>
+	</div>
 {% endblock %}

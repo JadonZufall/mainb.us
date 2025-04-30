@@ -3,7 +3,8 @@ from django.forms import ValidationError
 from apps.authentication.models import User
 
 
-class UserSignupForm(forms.ModelForm):
+
+class AuthSignupForm(forms.ModelForm):
     username = forms.CharField(
         label="Username",
         widget=forms.TextInput,

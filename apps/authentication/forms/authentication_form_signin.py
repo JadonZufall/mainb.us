@@ -5,12 +5,16 @@ from apps.authentication.models import User
 
 
 
-class UserSigninForm(forms.ModelForm):
+class AuthSigninForm(forms.Form):
     username = forms.CharField(
-        label="username",
-        widget=forms.TextInput,
+        label="Username",
+        max_length=32,
+        widget=forms.TextInput(attrs={"class": "form-control"}),
+        required=True,
     )
     password = forms.CharField(
-        label="password",
-        widget=forms.PasswordInput,
+        label="Password",
+        max_length=64,
+        widget=forms.PasswordInput(attrs={"class": "form-control"}),
+        required=True,
     )
