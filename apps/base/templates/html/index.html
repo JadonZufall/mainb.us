@@ -13,9 +13,15 @@
 
         {% include 'html/components/logo.html' with width='500px' %}
         <section>
-            <a href="{% url 'index' %}">Signin</a>
-            |
-            <a href="{% url 'index' %}">Signup</a>
+            {% if user %}
+                <a href="{% url 'authentication_signin' %}">Signin</a>
+                |
+                <a href="{% url 'authentication_signup' %}">Signup</a>
+            {% else %}
+                <a href="">{{ user.username }}</a>
+                |
+                <a href="{% url 'authentication_signout' %}">Signout</a>
+            {% endif %}
         </section>
         <h1>Welcome to the Mainbus!</h1>
         <p>

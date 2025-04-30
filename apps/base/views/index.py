@@ -10,6 +10,7 @@ class IndexView(View):
         response: HttpResponse = render(
             request,
             "index.html",
+            {"user": request.user, "is_authenticated": request.user.is_authenticated, },
         )
         return response
     
