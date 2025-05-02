@@ -1,0 +1,32 @@
+textarea.syntax-input {
+	font-family: monospace;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	color: #000;
+	background-color: #f8f8f8;
+	border: 1px solid #ccc;
+	padding: 10px;
+	resize: none;
+	width: 100%;
+	height: 200px;
+}
+
+p.syntax-display {
+	font-family: monospace;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	color: #000;
+	background-color: #f8f8f8;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+p.syntax-display > .line > .keyword {
+	color: #0000FF;
+	font-weight: bold;
+}
+
+p.syntax-display > .line > .string {
+	color: #008000;
+	font-style: italic;
+}

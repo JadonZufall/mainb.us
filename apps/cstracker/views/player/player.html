@@ -1,0 +1,67 @@
+
+
+<img src="{{ profile_picture }}" alt="Profile Picture" class="profile-picture">
+<div>{{ profile_level }}</div>
+<div id="steam-level">{{ steam_level }}</div>
+<div id="steam-account-age">{{ steam_account_age }}</div>
+
+
+<section id="filter-selector">
+	<mb-checkbox></mb-checkbox>
+
+</section>
+
+
+
+
+<section id="steam-inventory">
+	<section id="steam-keys">
+		<section id="steam-guest-pass"></section>
+		<section id="steam-gift"></section>
+	</section>
+	<section id="profile-modifiers"></section>
+	<section id="booster-packs">
+
+	</section>
+	<section id="trading-cards">
+		{% for card in trading_cards %}
+			<section class="card">
+				<img src="{{ card.image }}" alt="{{ card.name }}">
+				<div class="card-name">{{ card.name }}</div>
+				<div class="card-rarity">{{ card.rarity }}</div>
+				<div class="card-quantity">{{ card.quantity }}</div>
+				<div class="card-price">{{ card.price }}</div>
+
+				<div class="card-collection">{{ card.collection }}</div>
+				<div class="card-set">{{ card.set }}</div>
+			</section>
+		{% endfor %}
+	</section>
+	<section id="vanity-items">
+		<section id="backgrounds"></section>
+		<section id="emoticons"></section>
+		<section id="stickers"></section>
+		<section id="avatars">
+			<section id="static-avatars"></section>
+			<section id="animated-avatars"></section>
+		</section>
+		<section id="profile-backgrounds"></section>
+		<section id="animated-backgrounds"></section>
+		<section id="keyboard-skins"></section>
+	</section>
+
+	<section id="games"></section>
+	<section id="badges"></section>
+</section>
+
+<section id="cs-inventory">
+	<section id="cs-keys"></section>
+	<section id="cs-skins"></section>
+	<section id="cs-stickers">
+
+	</section>
+	<section id="cs-cases"></section>
+	<section id="cs-gloves"></section>
+	<section id="cs-pins"></section>
+	<section id="cs-collections"></section>
+</section>

@@ -8,15 +8,17 @@
 
 
 {% block content %}
-<style>
-	body {
-		margin: 100px 1000px;
-	}
-</style>
+<h3>Chips</h3>
+<div>
 {% include 'components/user_chip.html' with username='testingtoseeiftoolongvaluewillbreakthething' %}
 {% include 'components/user_chip.html' with username='admin' status='offline' %}
 {% include 'components/user_chip.html' with username='admin' status='online' %}
 {% include 'components/user_chip.html' with username='admin' status='away' %}
 {% include 'components/user_chip.html' with username='admin' status='donotdisturb' %}
 <button onclick="onTestButton()">CLICK</button>
+</div>
+<h3>Syntax Highlighter</h3>
+<div>
+	{% include 'components/syntax_highlighter.html' %}
+</div>
 {% endblock %}
