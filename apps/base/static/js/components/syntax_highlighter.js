@@ -44,7 +44,7 @@ function format_python(line) {
 	for (let i = 0; i < letters.length; i++) {
 		if (letters[i] === undefined) { continue; }
 
-		if (letters[i] === '"' || letters[i] === "'") {
+		else if (letters[i] === '"' || letters[i] === "'") {
 			is_closed = false;
 			for (let j = i+1; j < letters.length; j++) {
 				if (letters[j] === letters[i]) {
@@ -69,47 +69,6 @@ function format_python(line) {
 					error: true
 				});
 				break;
-			}
-		}
-
-		else if (false) {//else if (isWhitespace(letters[i])) {
-			// Combine whitespace tokens.
-			let count_spaces = 0;
-			let count_tabs = 0;
-			for (let j = i; j < letters.length; j++) {
-				if (letters[j] === " ") { count_spaces += 1; }
-				else if (letters[j] === "\t") { count_tabs += 1; }
-				console.log(count_tabs, count_spaces);
-
-				if (letters[j] !== " " && letters[j] !== "\t") {
-					tokens.push({
-						type: "whitespace",
-						value: count_spaces + (4 * count_tabs),
-						spaces: count_spaces,
-						tabs: count_tabs,
-						start: i,
-						end: j - 1,
-						error: false,
-					});
-					i = j - 1;
-					break;
-				}
-				else if (j === letters.length - 1) {
-					tokens.push({
-						type: "whitespace",
-						value: count_spaces + (4 * count_tabs),
-						spaces: count_spaces,
-						tabs: count_tabs,
-						start: i,
-						end: letters.length,
-						error: false
-					});
-					i = letters.length;
-					break;
-				}
-				else {
-					continue;
-				}
 			}
 		}
 
