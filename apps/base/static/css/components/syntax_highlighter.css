@@ -30,3 +30,15 @@ p.syntax-display > .line > .string {
 	color: #008000;
 	font-style: italic;
 }
+
+p.syntax-display > .line > .whitespace {
+	color: #aaaaaa;
+	font-style: italic;
+}
+
+p.syntax-display > .line > [error="true"] {
+	font-style: italic;
+	text-decoration-line: underline;
+	text-decoration-color: red;
+	text-decoration-style: wavy;
+}
