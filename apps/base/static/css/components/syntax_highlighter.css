@@ -21,15 +21,39 @@ p.syntax-display {
 	padding: 10px;
 }
 
+p.syntax-display > .line > .comment {
+	color: #afafaf;
+	font-style: italic;
+	font-weight: lighter;
+}
+
 p.syntax-display > .line > .keyword {
 	color: #0000FF;
 	font-weight: bold;
 }
 
-p.syntax-display > .line > .string {
+p.syntax-display > .line > .string > .quote {
 	color: #008000;
+	font-style: normal;
+}
+
+p.syntax-display > .line > .string > .quote.open, p.syntax-display > .line > .string > .quote.close {
 	font-style: italic;
 }
+
+p.syntax-display > .line > .f-string > .quote {
+	color: #808000;
+	font-style: normal;
+}
+
+p.syntax-display > .line > .f-string > .quote.prefix {
+	color: #ff6666;
+}
+
+p.syntax-display > .line > .f-string > .quote.open, p.syntax-display > .line > .f-string > .quote.close {
+	font-style: italic;
+}
+
 
 p.syntax-display > .line > .whitespace {
 	color: #aaaaaa;

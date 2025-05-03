@@ -1,4 +1,25 @@
 
+/**
+ * @function
+ * @summary Returns if the provided value is considered to be a digit (1-9)
+ * @description Function that is used to check if a string is considered to be a digit, much like isDigit method in python.  This function checks if the provided value is a digit with regex.
+ * @author Jadon Zufall
+ * @param {string} value The target value.
+ * @returns {boolean} `true` when `value` is a digit and `false` when `value` is not considered a digit.
+ */
+function isDigit(value) { return /^\d+$/.test(value); }
+
+
+/**
+ * @function
+ * @summary Return if the provided value is considered to be a decmil point (. or ,)
+ * @description Function that is used to check if a string is considered to be the seperator between a number and the fractional section of a number.
+ * @author Jadon Zufall
+ * @param {string}
+ * @returns {boolean} `true` when `value` is a decimal point `false` when `value` is not a decimal point.
+ */
+function isDecimal(value) { return value === "."; }
+
 /** 
  * @function
  * @summary Returns if the provided value is considered to be numeric (meaning 1-9 or .)
@@ -33,18 +54,75 @@ function isWhitespace(value) {
 	return /^\s*$/.test(value);
 }
 
+function isQuotes(value) {
+	if (typeof(value) !== "string") { return false; }
+	return value === '"' || value === "'";
+}
+
+function isLineComment(value) {
+	if (typeof(value) !== "string") { return false; }
+	return value === "#";
+}
+
+
+/**
+ * 
+ * @param {string} value
+ * @returns {string} 
+ */
+function cleanLine(value) {
+	return value.replace(/&/g, "&amp;")
+				.replace(/</g, "&lt;")
+				.replace(/>/g, "&gt;");
+}
+
+
 /**
  * 
  * @param {string} line 
  * @returns 
  */
 function format_python(line) {
+	line = cleanLine(line);
 	let letters = line.split("");
 	let tokens = [];
 	for (let i = 0; i < letters.length; i++) {
 		if (letters[i] === undefined) { continue; }
 
-		else if (letters[i] === '"' || letters[i] === "'") {
+		else if (i + 1 < letters.length && letters[i] === 'f' && isQuotes(letters[i+1])) {
+			tokens.push({ type: "f-string-prefix", value: letters[i], start: i, end: i, error: false });
+		}
+
+		else if (i + 2 < letters.length && isQuotes(letters[i]) && letters[i] === letters[i+1] && letters[i] === letters[i+2]) {
+			tokens.push({ type: "blockquote-flag", value: ''.padEnd(3, letters[i]), start: i, end: i+2, error: false });
+			i = i + 3;
+			
+			// Search for end of block quotes
+			let is_closed = false;
+			for (let j = i; j < letters.length - 2; j++) {
+				if (letters[i-1] === letters[j] && letters[j] === letters[j+1] && letters[j] === letters[j+2]) {
+					is_closed = true;
+					// Push the contents of the block quote, if the closing block quotes does not come immedietly after.
+					if (j !== i) {
+						tokens.push({ type: "blockquote-text", value: line.substring(i, j), start: i, end: j-1, error: false });
+					}
+					// Push the closing blockquotes.
+					tokens.push({ type: "blockquote-flag", value: ''.padEnd(3, letters[j]), start: j, end: j+2, error: false });
+					i = j + 2;
+					break;
+				}
+			}
+			
+			// If the blockquote was not closed on this line then make it take up the entire rest of the line.
+			if (!is_closed) {
+				tokens.push({ type: "blockquote-text", value: line.substring(i, letters.length), start: i, end: letters.length, error: false });
+				i = letters.length;
+				break;
+			}
+			
+		}
+
+		else if (isQuotes(letters[i])) {
 			is_closed = false;
 			for (let j = i+1; j < letters.length; j++) {
 				if (letters[j] === letters[i]) {
@@ -83,59 +161,19 @@ function format_python(line) {
 			tokens.push({ type: "operator", value: letters[i], start: i, end: i, error: false });
 		}
 
-		else if (letters[i] === "#") {
+		else if (isLineComment(letters[i])) {
 			let value = line.substring(i, letters.length);
 			tokens.push({ type: "comment", value: value, start: i, end: letters.length - 1, error: false });
 			i = letters.length;
 			break;
 		}
 
-		else if (isNumeric(letters[i])) {
-			for (let j= i; j < letters.length; j++) {
-				if (letters[j] == ".") {
-					tokens.push({
-						type: "number",
-						value: line.substring(i, j),
-						start: i,
-						end: j-1,
-						error: false
-					});
-					tokens.push({
-						type: "decimal",
-						value: letters[j],
-						start: j,
-						end: j,
-						error: false
-					});
-					i = j+1;
-					continue;
-				}
-				else if (!isNumeric(letters[j])) {
-					tokens.push({
-						type: "number", 
-						value: line.substring(i, j), 
-						start: i,
-						end: j-1,
-						error: false
-					});
-					i = j-1;
-					break;
-				}
-				else if (j == letters.length - 1) {
-					tokens.push({
-						type: "number",
-						value: line.substring(i, letters.length),
-						start: i,
-						end: j,
-						error: false
-					});
-					i = j;
-					break;
-				}
-				else {
-					continue;
-				}
-			}
+		else if (isDigit(letters[i])) {
+			tokens.push({ type: "number", value: letters[i], start: i, end: i, error: false });
+		}
+
+		else if (isDecimal(letters[i])) {
+			tokens.push({ type: "decimal", value: letters[i], start: i, end: i, error: false });
 		}
 
 		else {
@@ -167,59 +205,137 @@ function format_python(line) {
 
 	// Merge like tokens
 	for (let i = 1; i < tokens.length; i++) {
-		let token = tokens[i];
 		let prev = tokens[i-1];
+		let token = tokens[i];
 		if (token.type === "undefined" && prev.type === "undefined" && token.error === prev.error) {
-			let merged_token = {
-				type: "undefined",
-				value: prev.value + token.value,
-				error: token.error,
-				start: prev.start,
-				end: token.end,
-				merges: token.merges + prev.merges + 1
-			};
+			let merged_token = { type: "undefined", value: prev.value + token.value, error: token.error, start: prev.start, end: token.end, merges: token.merges + prev.merges + 1 };
 			tokens[i-1] = merged_token;							// Set previous token equal to the merged token.
 			tokens.splice(i, 1);			// Remove token @ index i
 			i = i - 1;											// Step i back one to account for the element removed from the array.
 		}
 		else if (token.type === "whitespace" && prev.type === "whitespace" && token.error === prev.error) {
-			let merged_token = {
-				type: "whitespace",
-				value: prev.value + token.value,
-				error: token.error,
-				start: prev.start,
-				end: token.end,
-				merges: token.merges + prev.merges + 1
-			};
+			let merged_token = { type: "whitespace", value: prev.value + token.value, error: token.error, start: prev.start, end: token.end, merges: token.merges + prev.merges + 1 };
 			tokens[i-1] = merged_token;							// Set previous token equal to the merged token.
 			tokens.splice(i, 1);			// Remove token @ index i
 			i = i - 1;											// Step i back one to account for the element removed from the array.
 		}
+		else if (token.type === "number" && prev.type === "number" && token.error === prev.error) {
+			let merged_token = { type: "number", value: prev.value + token.value, error: token.error, start: prev.start, end: token.end, merges: token.merges + prev.merges + 1 };
+			tokens[i-1] = merged_token;							// Set previous token equal to the merged token.
+			tokens.splice(i, 1);			// Remove token @ index i
+			i = i - 1;											// Step i back one to account for the element removed from the array.
+		}
+		else if (token.type === "blockquote-flag" && prev.type === "blockquote-flag" && token.error === prev.error) {
+			// Merge blockquote flags only if they have no blockquote-text inbetween them.
+			let merged_token = { type: "blockquote", value: prev.value + token.value, error: token.error, start: prev.start, end: token.end, merges: token.merges + prev.merges + 1 };
+			tokens[i-1] = merged_token;
+			tokens.split(i, 1);
+			i = i - 1;
+		}
 	}
+
+	// Merge string => fstring
+	for (let i = 1; i < tokens.length; i++) {
+		let prev = tokens[i-1];
+		let token = tokens[i];
+		if (prev.type === "f-string-prefix" && token.type === "string") {
+			let merged_token = { type: "f-string", value: prev.value + token.value, error: token.error, start: prev.start, end: token.end, merges: token.merges + prev.merges + 1 };
+			tokens[i-1] = merged_token;
+			tokens.splice(i, 1);
+			i = i - 1;
+		}
+	}
+
+	// Merge 3 group values.
+	for (let i = 1; i < tokens.length - 1; i++) {
+		let prev = tokens[i-1];
+		let token = tokens[i];
+		let next = tokens[i+1];
+		if (prev.type === "number" && next.type === "number" && token.type === "decimal" && token.error === prev.error && token.error === next.error) {
+			let merged_token = { type: "float", value: prev.value + token.value + next.value, error: token.error, start: prev.start, end: next.end, merges: token.merges + prev.merges + next.merges + 1 };
+			tokens[i-1] = merged_token;
+			tokens.splice(i, 2);
+			i = i - 1;
+		}
+		else if (prev.type === "blockquote-flag" && token.type === "blockquote-text" && next.type === "blockquote-flag" && token.error === prev.error && token.error === next.error) {
+			let merged_token = { type: "blockquote", value: prev.value + token.value + next.value, error: token.error, start: prev.start, end: next.end, merges: token.merges + prev.merges + next.merges + 1 };
+			tokens[i-1] = merged_token;
+			tokens.splice(i, 2);
+			i = i - 1;
+		}
+	}
+
 
 	let result = "";
 	for (let i = 0; i < tokens.length; i++) {
 		let token = tokens[i];
-		if (token.type === "undefined") { 
-			result += `<span class='undefined' error=${token.error}>${token.value}</span>`; 
+		if (token.type === "undefined") {
+			result += `<span class='undefined' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${token.value}</span>`; 
 		}
-		else if (token.type === "string") { 
-			result += `<span class='string' error="${token.error}">${token.value}</span>`; 
+		else if (token.type === "comment") {
+			result += `<span class='comment' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${token.value}</span>`;
+		}
+		else if (token.type === "blockquote-flag") {
+			result += `<span class='blockquote-flag' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${token.value}</span>`;
+		}
+		else if (token.type === "blockquote-text") {
+			result += `<span class='blockquote-text' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${token.value}</span>`;
+		}
+		else if (token.type === "blockquote") {
+			let value;
+			if (!token.error) {
+				value = `<span class='quote open'>${token.value.substring(0, 3)}</span>`
+				value += `<span class='quote text'>${token.value.substring(3, token.value.length - 3)}</span>`
+				value += `<span class='quote close'>${token.value.substring(token.value.length - 3, token.value.length)}</span>`
+			}
+			else {
+				value = `<span class='quote text'>${token.value}</span>`
+			}
+			result += `<span class='blockquote' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${value}</span>`
+			
+		}
+		else if (token.type === "f-string") {
+			let value;
+			if (!token.error) {
+				value = `<span class='quote prefix'>${token.value[0]}</span>`;
+				value += `<span class='quote open'>${token.value[1]}</span>`;
+				value += `<span class='quote value'>${token.value.substring(2, token.value.length - 1)}</span>`;
+				value += `<span class='quote close'>${token.value[token.value.length-1]}</span>`;
+			}
+			else {
+				value = `<span class='quote value'>${token.value}</span>`
+			}
+			result += `<span class='f-string' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${value}</span>`; 
+		}
+		else if (token.type === "string") {
+			let value;
+			if (!token.error) {
+				value = `<span class='quote open'>${token.value[0]}</span>`;
+				value += `<span class='quote value'>${token.value.substring(1, token.value.length - 1)}</span>`;
+				value += `<span class='quote close'>${token.value[token.value.length-1]}</span>`;
+			}
+			else {
+				value = `<span class='quote value'>${token.value}</span>`
+			}
+			result += `<span class='string' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${value}</span>`; 
 		}
 		else if (token.type === "whitespace") { 
 			result += `<span class='whitespace' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${''.padStart(token.value, '.')}</span>`; 
 		}
 		else if (token.type === "operator") { 
-			result += `<span class='operator' error=${token.error} value='${value}'>${token.value}</span>`; 
+			result += `<span class='operator' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${token.value}</span>`; 
 		}
 		else if (token.type === "number") { 
-			result += `<span class='number' error=${token.error} value='${value}'>${token.value}</span>`; 
+			result += `<span class='number' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${token.value}</span>`; 
 		}
 		else if (token.type === "decimal") { 
-			result += `<span class='decimal' error=${token.error} value='${value}'>${token.value}</span>`;
+			result += `<span class='decimal' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${token.value}</span>`;
+		}
+		else if (token.type === "float") {
+			result += `<span class='float' start='${token.start}' end='${token.end}' value='${token.value}' error='${token.error}'>${token.value}</span>`
 		}
 		else { 
-			result += `<span class="${token.type} error" error='${true}' value='${value}'>${token.value}</span>`; 
+			result += `<span class='${token.type} error' start='${token.start}' end='${token.end}' value='${token.value}' error='${true}' errorType='INVALID_TYPE'>${token.value}</span>`; 
 		}
 	}
 	
