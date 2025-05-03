@@ -54,11 +54,29 @@ function isWhitespace(value) {
 	return /^\s*$/.test(value);
 }
 
+
+/**
+ * @function
+ * @summary Checks if a value is a quote symbol.
+ * @description A function that checks if a value is a quote symbol, such as " or ' for use in various parsing functions.
+ * @author Jadon Zufall
+ * @param {string} value The target value.
+ * @returns {boolean} `true` if `value` is a quote symbol `false` if `value` is not a quote symbol.
+ */
 function isQuotes(value) {
 	if (typeof(value) !== "string") { return false; }
 	return value === '"' || value === "'";
 }
 
+
+/**
+ * @function
+ * @summary Checks if a value is a line comment symbol.
+ * @description A function that checks if a value is a line comment symbol for use in various parsing functions.
+ * @author Jadon Zufall
+ * @param {string} value The target value.
+ * @returns {boolean} `true` if `value` is a line comment symbol `false` if `value` is not a line comment symbol.
+ */
 function isLineComment(value) {
 	if (typeof(value) !== "string") { return false; }
 	return value === "#";
@@ -66,9 +84,12 @@ function isLineComment(value) {
 
 
 /**
- * 
- * @param {string} value
- * @returns {string} 
+ * @function
+ * @summary Cleans up a line of code.
+ * @description Cleans up a line of code by replacing values like &, < and > with the values HTML uses to display them.
+ * @author Jadon Zufall
+ * @param {string} value The line you wish to clean.
+ * @returns {string} The clean line of code.
  */
 function cleanLine(value) {
 	return value.replace(/&/g, "&amp;")
@@ -78,9 +99,12 @@ function cleanLine(value) {
 
 
 /**
- * 
- * @param {string} line 
- * @returns 
+ * @function
+ * @summary Formats code in python.
+ * @description Formats code in python via tokenization. In reality this function is the overly complicated way of doing it I should have just used an abstract syntax tree.
+ * @author Jadon Zufall
+ * @param {string} line The line of code that you wish to format.
+ * @returns {string} The formatted python code.
  */
 function format_python(line) {
 	line = cleanLine(line);
@@ -344,8 +368,29 @@ function format_python(line) {
 	return result;
 }
 
-function format_javascript(line) { return line; }
 
+/**
+ * @function
+ * @summary Formats code in javascript.
+ * @description Formats code in javascript via tokenization. In reality this function is the overly complicated way of doing it I should have just used an abstract syntax tree.
+ * @author Jadon Zufall
+ * @param {string} line The line of code that you wish to format.
+ * @returns {string} The formatted javascript code.
+ */
+function format_javascript(line) { 
+	throw new Error("Not implemented error.  Javascript formatter has not been created.");
+}
+
+
+/**
+ * @function
+ * @summary Format a line of code based on the language provided.
+ * @description Formats a line of code for the language provided. Checks the language with what is basically a switch and calls the coorisponding function for formatting that language.  Returns Unsupported syntax when invalid language is provided.
+ * @author Jadon Zufall
+ * @param {string} line The line of code you wish to format.
+ * @param {string} language The language you wish to format this code for.
+ * @returns {string} The formatted code.
+ */
 function format_code(line, language) {
 	if (language === "plaintext") { return line; }
 	else if (language === "python") { return format_python(line); }
@@ -354,23 +399,41 @@ function format_code(line, language) {
 }
 
 
+// Auto update the paragraph (<p>) that is connected to the text area (<textarea>).
 document.querySelectorAll("textarea.syntax-input").forEach((element) => {
+	// Clear the textarea
 	element.value = "";
+	
+	// Check for a bound paragraph for this textarea.
 	let display_id = element.getAttribute("for") || null;
+	if (!display_id) {
+		console.warn("Unbound display element for", element);
+	}
+	
+	// Get the bound paragraph for this textarea.
 	let display = document.querySelector(`#${display_id}`);
 	if (!display) {
 		console.warn("No display element found for", display_id, element);
 		return;
 	}
+
+	// Add an event listener to listen for input provided to the text area.
 	element.addEventListener("input", (event) => {
+		// Get the language of the syntax highlighter.
 		let language = element.getAttribute("syntax") || "plaintext";
+
+		// Initialize an empty string for storing the final display value of the paragraph.
 		let display_value = "";
 		
+		// Seperate out the lines.
 		let lines = element.value.split(/\r?\n/g);
 		for (let i = 0; i < lines.length; i++) {
+			// Format each line one by line then add line breaks.
 			let line = format_code(lines[i], language);
 			display_value += `<span class="line">${line}</span><br>`;
 		}
+
+		// Set the innerHTML of the bound paragraph to the final display_value.
 		display.innerHTML = display_value;
 	});
 })
