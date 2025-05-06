@@ -1,4 +1,8 @@
 
+
+
+
+
 /**
  * @function
  * @summary Returns if the provided value is considered to be a digit (1-9)
